@@ -8,8 +8,8 @@ description: "Get TestSprite MCP Server up and running in your IDE in under 2 mi
 Before installing TestSprite MCP Server, ensure you have:
 
 1. **Compatible IDEs**
-2. **TestSprite Account** - [Sign up for free](https://www.testsprite.com/auth/cognito/sign-up)
-3. **Node.js >= 22** - [Download Node.js](https://nodejs.org/) (required for running MCP server)
+2. **TestSprite Account** - [Sign up for free  <Icon icon="arrow-up-right-from-square" size={12} />](https://www.testsprite.com/auth/cognito/sign-up)
+3. **Node.js >= 22** - [Download Node.js  <Icon icon="arrow-up-right-from-square" size={12} />](https://nodejs.org/) (required for running MCP server)
 
 <AccordionGroup>
   <Accordion title="Which IDEs and editors does TestSprite support?">
@@ -31,7 +31,7 @@ First, you'll need a TestSprite API key for any installation method:
 </Frame>
 
 
-1. Sign in to your [TestSprite Dashboard](https://www.testsprite.com/dashboard)
+1. Sign in to your [TestSprite Dashboard  <Icon icon="arrow-up-right-from-square" size={12} />](https://www.testsprite.com/dashboard)
 2. Navigate to **API Keys** under Settings
 3. Click **"New API Key"**
 4. **Copy** your API key (you'll need it for installation)
@@ -41,7 +41,7 @@ First, you'll need a TestSprite API key for any installation method:
 The easiest way to install TestSprite MCP Server in Cursor:
 
 1. Get your [**API key**](#get-your-api-key). 
-2. Click this [one-click install link](cursor://anysphere.cursor-deeplink/mcp/install?name=TestSprite&config=eyJjb21tYW5kIjoibnB4IEB0ZXN0c3ByaXRlL3Rlc3RzcHJpdGUtbWNwQGxhdGVzdCIsImVudiI6eyJBUElfS0VZIjoiIn19).
+2. Click this [one-click install link  <Icon icon="arrow-up-right-from-square" size={12} />](cursor://anysphere.cursor-deeplink/mcp/install?name=TestSprite&config=eyJjb21tYW5kIjoibnB4IEB0ZXN0c3ByaXRlL3Rlc3RzcHJpdGUtbWNwQGxhdGVzdCIsImVudiI6eyJBUElfS0VZIjoiIn19)
 3. **Enter your API key** in Cursor
 4. Start testing.
 
@@ -51,12 +51,12 @@ The easiest way to install TestSprite MCP Server in Cursor:
 
 <Tabs>
   <Tab title="Cursor">
-     1. Open Cursor Settings ( <kbd>Cmd/Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd> )
+     1. Open Cursor Settings ( <Tooltip tip="Cmd/Ctrl + Shift + J"><kbd>⌘⇧J</kbd></Tooltip> )
     2. Navigate to **Tools & Integration**
     3. Click **Add custom MCP**
     4. **Add** the following configuration:
 
-    ```json
+    ```json icon="code" Cursor Configuration
     {
       "mcpServers": {
         "TestSprite": {
@@ -69,6 +69,10 @@ The easiest way to install TestSprite MCP Server in Cursor:
       }
     }
     ```
+    5. Check if the green dot shows up on the TestSprite MCP server icon, and the tools have been loaded successfully.
+    <Frame>
+      <img src="../images/cursorSuccess.png" alt="Cursor Success" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+    </Frame>
   </Tab>
 
   <Tab title="Claude Code">
@@ -90,11 +94,11 @@ The easiest way to install TestSprite MCP Server in Cursor:
        ```
        
        You should see:
-       ```
+       ``` json Example Terminal Output
        TestSprite: npx @testsprite/testsprite-mcp@latest - ✓ Connected
        ```
 
-       > **Note:** Installing the MCP server this way adds TestSprite only to Claude Code under the current project directory. If you're using Claude Code in another project directory, you'll need to add the MCP server again. For installing the MCP server under different scopes (e.g. global), refer to the [Claude Code MCP documentation](https://docs.anthropic.com/en/docs/claude-code/mcp).
+       <Warning>Installing the MCP server this way adds TestSprite only to Claude Code under the **current project directory**. If you're using Claude Code in another project directory, you'll need to add the MCP server again. For installing the MCP server under different scopes (e.g. global), refer to the [Claude Code MCP documentation <Icon icon="arrow-up-right-from-square" size={12} />](https://docs.anthropic.com/en/docs/claude-code/mcp)</Warning>
 
 
 
@@ -109,7 +113,7 @@ The easiest way to install TestSprite MCP Server in Cursor:
     6. **Choose** the scope where you want the MCP server to be configured
     7. **Add** the `env` configuration:
 
-    ```json
+    ```json icon="code" VS Code Configuration
     {
       "mcpServers": {
         "TestSprite": {
@@ -122,12 +126,13 @@ The easiest way to install TestSprite MCP Server in Cursor:
       }
     }
     ```
+    8. After installation, click the `start` button above the TestSprite MCP entry in the `mcp.json` file you have just configured. If the server started with no errors and all the tools have been loaded, you have installed the MCP server successfully.
   </Tab>
 
   <Tab title="Other IDEs">
     Add this configuration to your MCP settings:
 
-    ```json
+    ```json icon="code" Other IDE Configuration
     {
       "mcpServers": {
         "TestSprite": {
@@ -146,19 +151,17 @@ The easiest way to install TestSprite MCP Server in Cursor:
 
 ## Installation Verification
 
-#### For Cursor
-Check if the green dot shows up on the TestSprite MCP server icon, and the tools have been loaded successfully.
-
-#### For VSCode
-After installation, click the `start` button above the TestSprite MCP entry in the `mcp.json` file you have just configured. If the server started with no errors and all the tools have been loaded, you have installed the MCP server successfully.
-
 ### Success Indicators
-<span className="material-icons">check_circle</span> Your AI assistant can see TestSprite MCP tools  
-<span className="material-icons">check_circle</span> No "command not found" errors  
-<span className="material-icons">check_circle</span> Ready to start testing your projects  
+- Your AI assistant can see **TestSprite MCP tools** 
+- No **"command not found"** errors  
+- Ready to start testing your projects  
 
 ### Quick Test
-Try prompting: `"Help me test this project with TestSprite"` - your assistant should offer to use TestSprite MCP tools.
+Try prompting:
+```json icon="file-lines"
+Help me test this project with TestSprite.
+``` 
+Your assistant should offer to use TestSprite MCP tools.
 
 ## Uninstallation
 
@@ -166,11 +169,3 @@ To remove TestSprite MCP Server:
 
 1. **Remove the configuration** from your IDE's MCP settings
 2. **Restart your IDE**
-
----
-
-## Next Steps
-
-<span className="material-icons">check_circle</span> **Installation Complete!** 
-
-Now you're ready to run your first test. Continue to [Your First Test](/mcp/quickstart) to see TestSprite MCP Server in action. 

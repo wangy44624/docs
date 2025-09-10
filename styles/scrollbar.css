@@ -1,0 +1,166 @@
+/* Custom Scrollbar Styles for TestSprite Documentation */
+
+/* Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #64748b;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f5f9;
+}
+
+/* Dark mode scrollbar */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: #0f0f0f;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #4a4a4a;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #0f0f0f;
+  }
+}
+
+/* Manual dark mode class support */
+[data-theme="dark"] ::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:active,
+.dark ::-webkit-scrollbar-thumb:active {
+  background: #4a4a4a;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-corner,
+.dark ::-webkit-scrollbar-corner {
+  background: #0f0f0f;
+}
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Dark mode for Firefox */
+@media (prefers-color-scheme: dark) {
+  html {
+    scrollbar-color: #2a2a2a #0f0f0f;
+  }
+}
+
+[data-theme="dark"] html,
+.dark html {
+  scrollbar-color: #2a2a2a #0f0f0f;
+}
+
+/* Custom scrollbar for specific containers */
+.scrollable-container {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.scrollable-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollable-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+
+.scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1;
+}
+
+/* Dark mode for scrollable containers */
+@media (prefers-color-scheme: dark) {
+  .scrollable-container {
+    scrollbar-color: #2a2a2a transparent;
+  }
+
+  .scrollable-container::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+  }
+
+  .scrollable-container::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+}
+
+[data-theme="dark"] .scrollable-container,
+.dark .scrollable-container {
+  scrollbar-color: #2a2a2a transparent;
+}
+
+[data-theme="dark"] .scrollable-container::-webkit-scrollbar-thumb,
+.dark .scrollable-container::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+
+[data-theme="dark"] .scrollable-container::-webkit-scrollbar-thumb:hover,
+.dark .scrollable-container::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for specific elements when needed */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}

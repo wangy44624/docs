@@ -7,7 +7,8 @@
   },
   "css": [
     "/styles/tables.css",
-    "/styles/kbd-dark-mode.css"
+    "/styles/kbd-dark-mode.css",
+    "/styles/scrollbar.css"
   ],
   "colors": {
     "primary": "#16A34A",
@@ -53,10 +54,10 @@
               "mcp/overview",
               "mcp/installation",
               "mcp/Your First Test",
-              "mcp/examples",
-              "mcp/troubleshooting",
               "mcp/workflow",
-              "mcp/tools"
+              "mcp/tools",
+              "mcp/examples",
+              "mcp/troubleshooting"
             ]
           },
           {

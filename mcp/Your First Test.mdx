@@ -1,37 +1,29 @@
-Experience the magic of TestSprite MCP Server with your first automated test in under 10 minutes.
+---
+title: "Your First Test"
+description: "Experience the magic of TestSprite MCP Server with your first automated test in under 10 minutes."
+---
 
-## What You'll Learn
+By the end of this guide, you'll have run your first **automated test suite**, seen AI generate comprehensive test plans, watched tests execute in the cloud, received detailed test reports, and applied **automatic bug fixes**.
 
-By the end of this guide, you'll have:
-
-<span className="material-icons">check_circle</span> Run your first automated test suite  
-<span className="material-icons">check_circle</span> Seen AI generate comprehensive test plans  
-<span className="material-icons">check_circle</span> Watched tests execute in the cloud  
-<span className="material-icons">check_circle</span> Received detailed test reports  
-<span className="material-icons">check_circle</span> Applied automatic bug fixes
-
-## Prerequisites
-
-Before starting, ensure you have:
-
-<span className="material-icons">check_circle</span> [TestSprite MCP Server installed](/mcp/installation)  
-<span className="material-icons">check_circle</span> A project with a running application (frontend/backend)  
-<span className="material-icons">check_circle</span> Your IDE (Cursor or Windsurf) open
+<Info>
+Before starting, ensure you have: 
+- [TestSprite MCP Server installed](/mcp/installation) 
+- Your IDE open
+</Info>
 
 ## Step 1: Prepare Your Project
 
 **Start Your Application** - Make sure your application is running locally:
 
-```bash
+```bash Example
 # For frontend applications (examples)
 npm run dev          # Usually runs on port 3000, 5173, or 8080
-
+ 
 # For backend applications (examples)
 node index.js        # Usually runs on port 8000, 3001, or 4000
 ```
 
-**Example Project Structure:**
-```
+``` text Project Structure Example
 my-project/
 ├── frontend/          # React, Vue, Angular, etc.
 │   ├── src/
@@ -47,56 +39,60 @@ my-project/
 
 ## Step 2: The Magic Command
 
-**Open Your IDE Chat** and follow these steps:
+Open **your IDE Chat** and follow these steps:
 1. **Open** a new chat window in your IDE
 2. **Type** the magic command:
 
-```
+```text icon="file-lines"
 Can you test this project with TestSprite?
 ```
 
 3. Drag and drop your project folder into the chat if you'd like to test a specific sub-project
-4. **Press Enter**
+4. Press  <kbd>⇧ Enter</kbd>
 
 That's it! Your AI assistant will now take over and guide you through the entire testing process.
 
 ## Step 3: The Automated Workflow
 
-Your AI assistant will automatically execute these steps:
+Your AI assistant will automatically handle the **entire testing process** by running through these steps. It takes care of everything from understanding your project to running the actual tests, so you don't have to do any of the work manually.
 
-**1. Bootstrap Testing Environment** - The AI calls `testsprite_bootstrap_tests`, opens TestSprite configuration portal where you'll configure test settings.
+<Accordion title="View Detailed Steps">
+  1. **Bootstrap Testing Environment** - The AI calls `testsprite_bootstrap_tests`, opens TestSprite configuration portal where you'll configure test settings.
 
-**2. Generate Code Summary** - The AI calls `testsprite_generate_code_summary`, analyzes your project structure and understands your application features.
+  2. **Generate Code Summary** - The AI calls `testsprite_generate_code_summary`, analyzes your project structure and understands your application features.
 
-**3. Generate Standardized PRD** - The AI calls `testsprite_generate_standardized_prd`, analyzes your uploaded PRD from the configuration step, generates a normalized PRD document, and saves it to your project as `testsprite_tests/standard-prd.json`.
+  3. **Generate Standardized PRD** - The AI calls `testsprite_generate_standardized_prd`, analyzes your uploaded PRD from the configuration step, generates a normalized PRD document, and saves it to your project as `testsprite_tests/standard-prd.json`.
 
-**4. Generate Test Plan** - The AI calls `testsprite_generate_frontend_test_plan` or `testsprite_generate_backend_test_plan`, creates comprehensive test cases and generates comprehensive test plan and individual test files.
+  4. **Generate Test Plan** - The AI calls `testsprite_generate_frontend_test_plan` or `testsprite_generate_backend_test_plan`, creates comprehensive test cases and generates comprehensive test plan and individual test files.
 
-**5. Execute Tests** - The AI calls `testsprite_generate_code_and_execute`, generates production-ready test code, runs tests in secure cloud sandbox, and returns detailed results.
+  5. **Execute Tests** - The AI calls `testsprite_generate_code_and_execute`, generates production-ready test code, runs tests in secure cloud sandbox, and returns detailed results.
+</Accordion>
 
 ## Step 4: Configuration (Required)
 
 When the bootstrap tool opens, you must configure:
 
-**Test Account Credentials** - If your app requires login:
-```
+1. **Test Account Credentials** - If your app requires login:
+```json Crediential Examples
 Username: test@example.com
 Password: your-test-password
 ```
 
-**Application URLs:**
-```
+2. **Application URLs:**
+``` text URL Examples
 Frontend: http://localhost:5173
 Backend: http://localhost:4000
 ```
 
-**Product Requirements Document** - Upload existing PRD (required). Even a draft or low-quality PRD is fine. TestSprite AI will generate a normalized PRD based on your upload.
+3. **Product Requirements Document** 
+
+Upload existing PRD (required). Even a draft or low-quality PRD is fine. TestSprite AI will generate a normalized PRD based on your upload.
 
 ## Step 5: Review Test Results
 
 After testing, you'll find these files in your project:
 
-```
+``` text Expandable After Testing Project Structure Example
 testsprite_tests/
 ├── tmp/
 │   ├── prd_files/                 # Uploaded PRD files
@@ -118,7 +114,7 @@ testsprite_tests/
 
 **Request Fixes** - After reviewing the test results, simply ask:
 
-```
+```text icon="file-lines"
 Please fix the codebase based on TestSprite testing results.
 ```
 
@@ -127,7 +123,7 @@ The AI will analyze failing tests, identify problematic code sections, apply tar
 ## Example Output
 
 **Test Plan Generated:**
-```json
+```json Expandable Test Plan Example
 {
   "testCases": [
     {
@@ -149,7 +145,7 @@ The AI will analyze failing tests, identify problematic code sections, apply tar
 ```
 
 **Test Report Summary:**
-```json
+```json Expandable Test Report Summary Example
 {
   "summary": {
     "totalTests": 18,
@@ -171,23 +167,39 @@ The AI will analyze failing tests, identify problematic code sections, apply tar
 
 ## Tips for Success
 
-- **<span className="material-icons">gps_fixed</span> Ensure Apps Are Running** - Frontend and backend should be accessible on standard ports
-- **<span className="material-icons">folder</span> Project Structure** - Include README with setup instructions and descriptive folder names  
-- **<span className="material-icons">vpn_key</span> Test Credentials** - Prepare test user accounts with non-production data
-- **<span className="material-icons">search</span> Review Generated Files** - Check the generated PRD and test plan for accuracy
+<AccordionGroup>
+  <Accordion title="Ensure Apps Are Running">
+  Frontend and backend should be accessible on standard ports
+  </Accordion>
+
+  <Accordion title="Project Structure">
+    Include README with setup instructions and descriptive folder names
+  </Accordion>
+
+  <Accordion title="Test Credentials">
+    Prepare test user accounts with non-production data
+  </Accordion>
+
+   <Accordion title="Review Generated Files">
+    Check the generated PRD and test plan for accuracy
+  </Accordion>
+</AccordionGroup>
 
 ## Next Steps
 
-<span className="material-icons">celebration</span> **Congratulations!** You've successfully run your first automated test with TestSprite MCP Server.
+**Congratulations!** You've successfully run your first automated test with TestSprite MCP Server.
 
-**Learn More:**
-- [Complete Testing Workflow](/mcp/workflow) - Understand the full process
-- [Examples](/mcp/examples) - See real-world use cases
-
-**Join the Community:**
-- [Discord](https://discord.com/invite/GXWFjCe4an) - Get help and share experiences
-- [GitHub](https://github.com/testsprite/testsprite-mcp) - Contribute and report issues
-
----
-
-*Ready to dive deeper? Continue to [Testing Workflow](/mcp/workflow) to understand the complete process.* 
+<Columns cols={2}>
+  <Card title="Complete Testing Workflow" href="/workflow">
+  Understand the full process
+  </Card>
+  <Card title="View Examples" href="/examples">
+  See real-world use cases
+  </Card>
+  <Card title="Join Discord" arrow="true" href="https://discord.com/invite/GXWFjCe4an">
+  Get help and share experiences
+  </Card>
+  <Card title="Contribute on Github" arrow="true" href="https://github.com/testsprite/testsprite-mcp">
+  Contribute and report issues
+  </Card>
+</Columns>

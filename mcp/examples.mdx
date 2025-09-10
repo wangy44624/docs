@@ -1,52 +1,91 @@
-# Examples
-
-Real-world TestSprite MCP Server output from an actual e-commerce project test run.
+---
+title: "Examples"
+description: "Real-world TestSprite MCP Server output from an actual e-commerce project test run."
+---
 
 ## 10-Minute Demo Video
 
 Watch TestSprite MCP Server in action with this complete workflow demonstration:
 
-<div style={{ position: 'relative', paddingBottom: '56.25%', marginTop: '20px', height: 0, overflow: 'hidden', maxWidth: '100%', background: '#000' }}>
+<Frame>
   <iframe 
+    width="100%" 
+    height="400" 
     src="https://www.youtube.com/embed/yLQdORqPl3s" 
-    style={{ 
-      position: 'absolute', 
-      top: 0, 
-      left: 0, 
-      width: '100%', 
-      height: '100%',
-      border: 'none'
-    }}
+    frameBorder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowFullScreen
-    title="TestSprite MCP Server Demo"
-  />
-</div>
+    style={{ borderRadius: '8px'}}
+  ></iframe>
+</Frame>
+<br />
 
-  **What you'll see in the demo:**
-  - One-click setup directly inside Cursor
-  - Complete testing workflow from start to finish
-  - Missing product requirements? MCP automatically generates them for you
-  - Full test plans and test cases created automatically
-  - Bugs detected, reported, and resolved with no human intervention in one loop
-  - Achieve 90%+ code accuracy with zero manual prompting
+**What you'll see in the demo:**
+- Set up TestSprite MCP Server **directly inside Cursor**.
+- See **end-to-end** testing workflow from start to finish
+- Missing product requirements? MCP automatically **generates** them for you
+- Full **test plans** and **test cases** created automatically
+- Bugs **detected**, **reported**, and **resolved** with no human intervention in one loop
+- Achieve **90%+** code accuracy with zero manual prompting
 
 ## E-commerce Frontend (React + TypeScript + Vite)
 
 ### Project Overview
 Simple locally hosted e-commerce web application with product browsing, user authentication, and admin functionality.
 
-**Tech Stack:**
-- Frontend: React 18, TypeScript, Vite, Material-UI
-- Backend: Node.js (local development) 
-- Testing: Playwright (Python)
+**Tech Stack**
+<Tabs>
+  <Tab title="Frontend" icon="window-maximize">
+     <Columns cols={3}>
+       <Card title="React 18">
+         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', paddingTop: '8px' }}>
+           <img src="/decorationAssets/react.png" alt="React" style={{ width: '32px', height: '32px' }} />
+         </div>
+       </Card>
+        <Card title="TypeScript">
+         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', paddingTop: '8px' }}>
+           <img src="/decorationAssets/typescript.png" alt="typescript" style={{ width: '32px', height: '32px' }} />
+         </div>
+       </Card>
+       <Card title="Vite">
+         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', paddingTop: '8px' }}>
+           <img src="/decorationAssets/vite.png" alt="Vite" style={{ width: '32px', height: '32px' }} />
+         </div>
+       </Card>
+        <Card title="Material UI">
+         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', paddingTop: '8px' }}>
+           <img src="/decorationAssets/mui.png" alt="mui" style={{ width: '32px', height: '32px' }} />
+         </div>
+       </Card>
+     </Columns>
+  </Tab>
+   <Tab title="Backend" icon="server">
+       <Columns cols={3}>
+        <Card title="Node.js (local development)">
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', paddingTop: '8px' }}>
+            <img src="/decorationAssets/node.png" alt="Node.js" style={{ width: '32px', height: '32px' }} />
+          </div>
+        </Card>
+      </Columns>
+  </Tab>
+     <Tab title="Testing" icon="gear">
+       <Columns cols={3}>
+        <Card title="Playwright (Python)">
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'flex-start', paddingTop: '8px' }}>
+            <img src="/decorationAssets/playwright.png" alt="playwright" style={{ width: '32px', height: '32px' }} />
+          </div>
+        </Card>
+      </Columns>
+  </Tab>
+</Tabs>
 
 ### Command Used
-```
+```text icon="file-lines"
 Can you test this e-commerce project with TestSprite?
 ```
 
 ### Generated Normalized PRD Example
-```json
+```json Expandable Sample Normalized PRD
 {
   "meta": {
     "project": "Simple E-commerce Web Application",
@@ -113,8 +152,7 @@ Can you test this e-commerce project with TestSprite?
 
 ### Generated Test Plan Example
 
-**Sample Test Cases:**
-```json
+```json Expandable Sample Test Cases
 [
   {
     "id": "TC001",
@@ -159,13 +197,23 @@ Can you test this e-commerce project with TestSprite?
 ```
 
 **Categories Generated:**
-- **functional** (8 tests) - Core business logic and user workflows
-- **error handling** (3 tests) - Exception handling and error recovery
-- **security** (3 tests) - Authentication, authorization, access control  
-- **ui** (2 tests) - User interface interactions and responsive design
+<Columns cols={2}>
+  <Card title="Functional (8 tests)">
+  Core business logic and user workflows
+  </Card>
+  <Card title="Error Handling (3 tests)">
+  Exception handling and error recovery
+  </Card>
+  <Card title="Security (3 tests)">
+  Authentication, authorization, access control  
+  </Card>
+  <Card title="UI (2 tests)" >
+  User interface interactions and responsive design
+  </Card>
+</Columns>
 
 ### Generated Test Code Example
-```python
+```python Expandable Sample Test Code
 # TC001_Login_success_with_valid_test_credentials.py
 import asyncio
 from playwright import async_api
@@ -237,8 +285,7 @@ asyncio.run(run_test())
 - **Passed:** 10 (62.5%)
 - **Failed:** 6 (37.5%)
 
-**Sample Results:**
-```
+``` text Expandable Same Results
 ✅ TC001: Login success with valid test credentials
    Severity: Low | Error: N/A
    Analysis: Login functionality correctly authenticates users with valid hardcoded credentials
@@ -260,7 +307,13 @@ asyncio.run(run_test())
 
 ### Test Report Example
 
-> #### TestSprite AI Project Test Report
+TestSprite automatically generates a comprehensive test report that provides detailed insights about performance and quality. 
+<Frame>
+  <img src="../images/report.png" alt="report" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+</Frame>
+<br />
+<Accordion title="View Full Sample Test Report ">
+  > #### TestSprite AI Project Test Report
 > 
 > ---
 > 
@@ -340,9 +393,11 @@ asyncio.run(run_test())
 > | Responsive Design & UI          | 1           | 0         | 0           | 1         |
 > | Error Handling & API Integration | 1          | 0         | 0           | 1         |
 > | Data Persistence                | 1           | 0         | 0           | 1         |
+</Accordion>
+
 
 ### File Structure Generated
-```
+```text Expandable Sample File Structure
 testsprite_tests/
 ├── tmp/
 │   ├── config.json               # Test configuration
