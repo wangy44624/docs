@@ -1,92 +1,91 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "TestSprite Documentation",
+  "fonts": {
+    "family": "Geist"
+  },
+  "css": [
+    "/styles/tables.css",
+    "/styles/kbd-dark-mode.css"
+  ],
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
-    "dark": "#15803D"
+    "dark": "#090909"
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "href": "https://www.testsprite.com/",
+          "icon": "globe"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://discord.gg/QQB9tJ973e",
+          "icon": "comments"
+        },
+        {
+          "anchor": "Contact Us",
+          "href": "https://calendly.com/contact-hmul/schedule",
+          "icon": "address-book"
+        }
+      ]
+    },
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
+        "icon": "square-terminal",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "introduction",
+              "get-started/Quick Start"
             ]
           },
           {
-            "group": "Customization",
+            "group": "MCP Server (IDE Integration)",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "mcp/overview",
+              "mcp/installation",
+              "mcp/Your First Test",
+              "mcp/examples",
+              "mcp/troubleshooting",
+              "mcp/workflow",
+              "mcp/tools"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Web Portal",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "web-portal/overview",
+              "web-portal/api-testing",
+              "web-portal/ui-testing",
+              "web-portal/test-lists",
+              "web-portal/monitoring",
+              "web-portal/api-keys"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Configuration",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+              "configuration/nodejs"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "About",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "about",
+              "faq"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -96,13 +95,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://calendly.com/contact-hmul/schedule"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://www.testsprite.com/auth/cognito/sign-in"
     }
   },
   "contextual": {
@@ -119,9 +118,67 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+      "x": "https://x.com/testsprite",
+      "github": "https://github.com/testsprite-ai",
+      "linkedin": "https://linkedin.com/company/testsprite",
+      "discord": "https://discord.gg/QQB9tJ973e"
+    },
+    "links": [
+      {
+        "header": "Solutions",
+        "items": [
+          {
+            "label": "MCP Server",
+            "href": "https://www.testsprite.com/solutions/mcp"
+          },
+          {
+            "label": "Backend Testing",
+            "href": "https://www.testsprite.com/solutions/backend"
+          },
+          {
+            "label": "Frontend Testing",
+            "href": "https://www.testsprite.com/solutions/frontend"
+          },
+          {
+            "label": "Data Testing",
+            "href": "https://calendly.com/contact-hmul/schedule"
+          },
+          {
+            "label": "AI Agent/Model Testing",
+            "href": "https://calendly.com/contact-hmul/schedule"
+          }
+        ]
+      },
+      {
+        "header": "Resources",
+        "items": [
+          {
+            "label": "Docs",
+            "href": "https://docs.testsprite.com/"
+          },
+          {
+            "label": "About",
+            "href": "https://www.testsprite.com/about"
+          },
+          {
+            "label": "Blog",
+            "href": "https://www.testsprite.com/blog"
+          }
+        ]
+      },
+      {
+        "header": "Legal",
+        "items": [
+          {
+            "label": "Terms & Conditions",
+            "href": "https://www.testsprite.com/terms"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "https://www.testsprite.com/privacy"
+          }
+        ]
+      }
+    ]
   }
 }

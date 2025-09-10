@@ -1,0 +1,632 @@
+# Troubleshooting
+
+Solutions to common issues encountered with TestSprite MCP Server.
+
+## Installation Issues
+
+### "Command not found" Error
+
+**Problem:** `npx @testsprite/testsprite-mcp@latest` command not found
+
+**Solution:**
+```bash
+# Check if Node.js and npm are installed
+node --version
+npm --version
+
+# If Node.js is not installed, install it first
+# Using Homebrew on macOS:
+brew install node
+
+# Or download from https://nodejs.org/
+
+# Check if npx is available (should come with npm 5.2+)
+npx --version
+
+# If npx is not found, update npm
+npm install -g npm@latest
+
+# Try running the package directly without npx
+npm install -g @testsprite/mcp-server
+testsprite-mcp --version
+
+# Alternative: Use npm exec (npm 7+)
+npm exec @testsprite/testsprite-mcp@latest
+
+# Clear npm cache if packages aren't found
+npm cache clean --force
+
+# Verify npx can find the package
+npx --version
+npx @testsprite/testsprite-mcp@latest --help
+
+# Check npm registry connectivity
+npm ping
+npm config get registry
+```
+
+### Permission Errors During Installation
+
+**Problem:** Permission denied when installing @testsprite/testsprite-mcp globally
+
+**Solution:**
+```bash
+# Option 1: Fix npm permissions (recommended)
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.zshrc  # or ~/.bashrc for bash
+source ~/.zshrc  # or source ~/.bashrc
+
+# Now install the latest version without sudo
+npm install -g @testsprite/testsprite-mcp@latest
+
+# Verify installation
+testsprite-mcp --version
+
+# Option 2: Use npx without global installation (recommended)
+# This automatically uses the latest version without permission issues
+npx @testsprite/testsprite-mcp@latest --version
+
+# Option 3: Install using sudo (not recommended - security risk)
+sudo npm install -g @testsprite/testsprite-mcp@latest
+
+# Option 4: Use Node Version Manager (nvm) for clean permissions
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install node  # Installs latest Node.js with proper permissions
+npm install -g @testsprite/testsprite-mcp@latest
+
+# Troubleshooting permission issues on macOS
+# If you still get permission errors, check npm ownership:
+sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
+
+# For fresh npm setup on macOS:
+sudo chown -R $(whoami) /usr/local/lib/node_modules
+sudo chown -R $(whoami) /usr/local/bin
+```
+
+### Node.js Version Compatibility
+
+**Problem:** TestSprite MCP Server requires Node.js 22+
+
+**Solution:**
+```bash
+# Check current version
+node --version
+
+# If version is below 22, upgrade Node.js
+# Method 1: Using nvm (recommended)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+source ~/.zshrc  # or source ~/.bashrc
+nvm install 22
+nvm use 22
+nvm alias default 22
+
+# Verify the installation
+node --version  # Should show v22.x.x
+
+# Method 2: Using Homebrew on macOS
+brew uninstall node  # Remove old version if needed
+brew install node@22
+brew link node@22 --force
+
+# Method 3: Download directly from nodejs.org
+# Visit https://nodejs.org/ and download Node.js 22 LTS
+
+# After upgrading, verify npm and npx are working
+npm --version
+npx --version
+
+# Test TestSprite MCP installation
+npx @testsprite/testsprite-mcp@latest --version
+```
+
+**Note:** Node.js 22 is required for optimal compatibility with TestSprite MCP Server features and dependencies.
+
+---
+
+## IDE Configuration Issues
+
+### MCP Server Not Detected in IDE
+
+**Problem:** IDE doesn't recognize TestSprite MCP Server
+
+**Solution:**
+
+1. **Verify JSON Configuration Syntax:**
+
+   **macOS/Linux Commands:**
+   ```bash
+   # Check for JSON syntax errors in configuration files
+   
+   # === CURSOR CONFIGURATION ===
+   
+   # Cursor project-level config (check current directory)
+   cat .cursor/mcp.json | jq .
+   
+   # Cursor global-level config
+   cat ~/.cursor/mcp.json | jq .
+   
+   # === VS CODE CONFIGURATION ===
+   
+   # VS Code project-level settings (check current directory)
+   cat .vscode/settings.json | jq .
+   
+   # VS Code global-level settings
+   # macOS
+   cat ~/Library/Application\ Support/Code/User/settings.json | jq .
+   # Linux
+   cat ~/.config/Code/User/settings.json | jq .
+   
+   # === ALTERNATIVE VALIDATION (if jq not available) ===
+   
+   # Use online JSON validator
+   # Copy file content and paste into https://jsonlint.com
+   
+   # Copy to clipboard
+   cat .cursor/mcp.json | pbcopy  # macOS
+   cat .cursor/mcp.json | xclip -selection clipboard  # Linux
+   
+   # === INSTALL JQ IF NEEDED ===
+   
+   # macOS
+   brew install jq
+   
+   # Linux (Ubuntu/Debian)
+   sudo apt-get install jq
+   
+   # Linux (CentOS/RHEL)
+   sudo yum install jq
+   ```
+
+   **Windows Commands:**
+   ```powershell
+   # Check for JSON syntax errors in configuration files
+   
+   # === CURSOR CONFIGURATION ===
+   
+   # Cursor project-level config (check current directory)
+   # PowerShell
+   Get-Content .cursor\mcp.json | ConvertFrom-Json
+   # Command Prompt with jq
+   type .cursor\mcp.json | jq .
+   
+   # Cursor global-level config
+   # PowerShell
+   Get-Content "$env:USERPROFILE\.cursor\mcp.json" | ConvertFrom-Json
+   # Command Prompt
+   type "%USERPROFILE%\.cursor\mcp.json" | jq .
+   
+   # === VS CODE CONFIGURATION ===
+   
+   # VS Code project-level settings (check current directory)
+   # PowerShell
+   Get-Content .vscode\settings.json | ConvertFrom-Json
+   # Command Prompt
+   type .vscode\settings.json | jq .
+   
+   # VS Code global-level settings
+   # PowerShell
+   Get-Content "$env:APPDATA\Code\User\settings.json" | ConvertFrom-Json
+   # Command Prompt
+   type "%APPDATA%\Code\User\settings.json" | jq .
+   
+   # === ALTERNATIVE VALIDATION (if jq not available) ===
+   
+   # Use online JSON validator
+   # Copy file content and paste into https://jsonlint.com
+   
+   # Copy to clipboard
+   Get-Content .cursor\mcp.json | Set-Clipboard  # PowerShell
+   type .cursor\mcp.json | clip  # Command Prompt
+   
+   # === INSTALL JQ IF NEEDED ===
+   
+   # Using Chocolatey
+   choco install jq
+   
+   # Using Scoop
+   scoop install jq
+   
+   # Manual download
+   # Download from https://stedolan.github.io/jq/download/
+   ```
+   
+   **Troubleshooting Tips:**
+   - If you see a parse error, fix the JSON file (missing commas, quotes, brackets, etc.)
+   - Use [jsonlint.com](https://jsonlint.com) for detailed error reporting
+
+   **Configuration File Locations:**
+   - **Cursor:**  
+     - Project-level: `.cursor/mcp.json` in your project root
+     - Global config:  
+       - macOS/Linux: `~/.cursor/mcp.json`
+       - Windows: `%USERPROFILE%\.cursor\mcp.json`
+     - **Priority:** Project-level takes precedence over global
+   
+   - **VS Code:**  
+     - Project-level: `.vscode/settings.json` in your project root
+     - Global config:  
+       - macOS: `~/Library/Application Support/Code/User/settings.json`
+       - Linux: `~/.config/Code/User/settings.json`
+       - Windows: `%APPDATA%\Code\User\settings.json`
+     - **Priority:** Project-level settings override global settings
+
+   **Common File Issues:**
+   ```bash
+   # Check if files exist
+   # macOS/Linux
+   ls -la .cursor/mcp.json
+   ls -la ~/.cursor/mcp.json
+   ls -la .vscode/settings.json
+   
+   # Windows (PowerShell)
+   Test-Path .cursor\mcp.json
+   Test-Path "$env:USERPROFILE\.cursor\mcp.json"
+   Test-Path .vscode\settings.json
+   
+   # Windows (Command Prompt)
+   if exist .cursor\mcp.json echo File exists
+   if exist "%USERPROFILE%\.cursor\mcp.json" echo File exists
+   if exist .vscode\settings.json echo File exists
+   
+   # Create directories if missing
+   # macOS/Linux
+   mkdir -p .cursor
+   mkdir -p ~/.cursor
+   mkdir -p .vscode
+   
+   # Windows (PowerShell)
+   New-Item -ItemType Directory -Force -Path .cursor
+   New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.cursor"
+   New-Item -ItemType Directory -Force -Path .vscode
+   
+   # Windows (Command Prompt)
+   if not exist .cursor mkdir .cursor
+   if not exist "%USERPROFILE%\.cursor" mkdir "%USERPROFILE%\.cursor"
+   if not exist .vscode mkdir .vscode
+   
+   # Check file permissions
+   # macOS/Linux
+   ls -la .cursor/mcp.json
+   chmod 644 .cursor/mcp.json  # Fix permissions if needed
+   
+   # Windows (PowerShell)
+   # Check permissions
+   Get-Acl .cursor\mcp.json
+   # Grant full control to current user
+   $user = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+   $acl = Get-Acl .cursor\mcp.json
+   $acl.SetOwner($user)
+   Set-Acl .cursor\mcp.json $acl
+   ```
+
+2. **Validate Required Configuration Elements:**
+   ```json
+   {
+     "mcpServers": {
+       "TestSprite": {
+         "command": "npx",
+         "args": ["@testsprite/testsprite-mcp@latest"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+   
+   **OR for VS Code:**
+   ```json
+   {
+     "mcp.servers": {
+       "TestSprite": {
+         "command": "npx",
+         "args": ["@testsprite/testsprite-mcp@latest"],
+         "env": {
+           "API_KEY": "your-api-key"
+         }
+       }
+     }
+   }
+   ```
+
+3. **Common Configuration Issues:**
+   - **Missing commas:** Ensure proper comma placement between JSON objects
+   - **Incorrect quotes:** Use double quotes (`"`) not single quotes (`'`)
+   - **Invalid escape characters:** Use proper path separators
+   - **Wrong property names:** Use `mcpServers` (Cursor) or `mcp.servers` (VS Code)
+   - **Missing required fields:** Ensure `command`, `args`, and `env` are present
+
+4. **Test Configuration:**
+   ```bash
+   # Test if the command runs manually
+   npx @testsprite/testsprite-mcp --version
+   ```
+
+### API Key Issues
+
+**Problem:** Invalid or missing API key
+
+**Solution:**
+1. **Get API key from TestSprite Dashboard:**
+   - Visit [TestSprite Dashboard](https://testsprite.com/dashboard)
+   - Go to Settings → API Keys
+   - Generate new key if needed
+
+2. **Update configuration:**
+   ```json
+   {
+     "env": {
+       "API_KEY": "ts_live_abcd1234efgh5678ijkl"
+     }
+   }
+   ```
+
+3. **Verify API key format:**
+   - Should start with `sk-user-`
+   - Should be 32+ characters long
+   - No extra spaces or characters
+
+---
+
+## Application Detection Issues
+
+### "Application not accessible" Error
+
+**Problem:** TestSprite can't access your running application
+
+**Diagnostic Steps:**
+```bash
+# Check if application is running
+curl http://localhost:3000
+curl http://localhost:8000
+
+# Check which ports are in use
+lsof -i :3000
+lsof -i :8000
+
+# Check firewall settings
+sudo ufw status  # Linux
+# System Preferences → Security → Firewall (macOS)
+```
+
+**Solutions:**
+
+1. **Ensure application is running:**
+   ```bash
+   # Frontend
+   npm start
+   npm run dev
+   yarn dev
+   
+   # Backend
+   npm run server
+   python app.py
+   node server.js
+   ```
+
+2. **Check port configuration:**
+   ```bash
+   # Find actual port
+   netstat -tulpn | grep LISTEN
+   
+   # Update bootstrap call
+   testsprite_bootstrap_tests({
+     localPort: 3000,  // Use actual port
+     type: "frontend",
+     projectPath: "/path/to/project",
+     testScope: "codebase"
+   })
+   ```
+
+3. **Check for port conflicts:**
+   ```bash
+   # Kill processes using port
+   lsof -ti:3000 | xargs kill -9
+   
+   # Or use different port
+   PORT=3001 npm start
+   ```
+
+---
+
+## Test Execution Issues
+
+### General Test Execution Problems
+
+**Problem:** Tests fail to run, generate, or execute properly
+
+**Primary Solution:** Most test execution issues can be resolved by completely deleting the generated `/testsprite_tests` directory and re-running the workflow from the beginning. If the problem persists, try reinstalling the TestSprite MCP Server.
+
+#### For Cursor IDE:
+
+**Quick Reset (Recommended):**
+1. Open Cursor IDE
+2. Go to the MCP Server panel/sidebar
+3. Find "TestSprite" in the server list
+4. Toggle the TestSprite MCP server OFF
+5. Wait 5-10 seconds
+6. Toggle the TestSprite MCP server ON
+7. Wait for the server to reconnect (green status indicator)
+
+**Manual Configuration Reload:**
+```bash
+# Alternative: Reload Cursor entirely
+# Press Cmd+Shift+P (macOS) or Ctrl+Shift+P (Windows/Linux)
+# Type "Developer: Reload Window" and press Enter
+```
+
+#### For VS Code:
+
+**Complete Reinstallation Steps:**
+
+**macOS/Linux:**
+```bash
+# Step 1: Stop VS Code completely
+pkill -f "Code"
+
+# Step 2: Remove existing TestSprite MCP installation
+npm uninstall -g @testsprite/testsprite-mcp
+npm cache clean --force
+
+# Step 3: Clear VS Code workspace cache (optional)
+rm -rf .vscode/.mcp-cache 2>/dev/null || true
+
+# Step 4: Reinstall latest version
+npm install -g @testsprite/testsprite-mcp@latest
+
+# Step 5: Verify installation
+npx @testsprite/testsprite-mcp@latest --version
+
+# Step 6: Restart VS Code
+code .
+
+# Step 7: Reload VS Code window
+# Press Cmd+Shift+P (macOS) / Ctrl+Shift+P (Linux)
+# Type "Developer: Reload Window" and press Enter
+```
+
+**Windows:**
+```powershell
+# Step 1: Stop VS Code completely
+taskkill /F /IM Code.exe
+
+# Step 2: Remove existing TestSprite MCP installation
+npm uninstall -g @testsprite/testsprite-mcp
+npm cache clean --force
+
+# Step 3: Clear VS Code workspace cache (optional)
+Remove-Item -Path .vscode\.mcp-cache -Recurse -Force -ErrorAction SilentlyContinue
+
+# Step 4: Reinstall latest version
+npm install -g @testsprite/testsprite-mcp@latest
+
+# Step 5: Verify installation
+npx @testsprite/testsprite-mcp@latest --version
+
+# Step 6: Restart VS Code
+code .
+
+# Step 7: Reload VS Code window
+# Press Ctrl+Shift+P
+# Type "Developer: Reload Window" and press Enter
+```
+
+**Alternative Method (Using npx - No Global Installation):**
+
+Update your VS Code settings to use npx instead:
+
+```json
+{
+  "mcp.servers": {
+    "TestSprite": {
+      "command": "npx",
+      "args": ["@testsprite/testsprite-mcp@latest"],
+      "env": {
+        "API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+Then reload VS Code:
+```bash
+# macOS/Linux
+# Press Cmd+Shift+P / Ctrl+Shift+P
+# Type "Developer: Reload Window"
+
+# Windows
+# Press Ctrl+Shift+P
+# Type "Developer: Reload Window"
+```
+
+### Verification Steps
+
+After reinstalling, verify the MCP server is working:
+
+```bash
+# Test the server directly
+npx @testsprite/testsprite-mcp@latest --version
+
+# Check if the server responds
+npx @testsprite/testsprite-mcp@latest --help
+```
+
+**In your IDE:**
+1. Look for TestSprite in the MCP server list
+2. Check for green/connected status indicator
+3. Try running a simple test command
+4. Verify API key is properly configured
+
+### Advanced Troubleshooting
+
+If reinstallation doesn't resolve the issue:
+
+**Check System Requirements:**
+```bash
+# Verify Node.js version (requires 22+)
+node --version
+
+# Update if needed
+nvm install 22
+nvm use 22
+```
+
+**Clear All Caches:**
+```bash
+# macOS/Linux
+npm cache clean --force
+rm -rf ~/.npm
+rm -rf node_modules package-lock.json
+npm install
+
+# Windows (PowerShell)
+npm cache clean --force
+Remove-Item -Path "$env:USERPROFILE\.npm" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path node_modules -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path package-lock.json -Force -ErrorAction SilentlyContinue
+npm install
+```
+
+**Check API Connectivity:**
+```bash
+# Test API connection
+curl -H "Authorization: Bearer your-api-key" https://api.testsprite.com/health
+
+# Or using PowerShell (Windows)
+Invoke-RestMethod -Uri "https://api.testsprite.com/health" -Headers @{"Authorization"="Bearer your-api-key"}
+```
+
+### Common Error Messages
+
+**"Command not found" after reinstallation:**
+- Ensure Node.js 22+ is installed
+- Restart your terminal/IDE
+- Check PATH environment variable
+
+**"Server connection failed":**
+- Verify internet connection
+- Check firewall settings
+- Validate API key format
+
+**"Permission denied":**
+- Use npx instead of global installation
+- Fix npm permissions (see Installation Issues section)
+
+### When to Contact Support
+
+If reinstallation doesn't resolve your issue, please contact support with:
+
+1. **System information:**
+   ```bash
+   node --version
+   npm --version
+   npx @testsprite/mcp-server --version
+   ```
+
+2. **IDE and configuration details:**
+   - IDE name and version
+   - Operating system version
+   - Screenshot of the MCP Server panel
+   - Relevant configuration files (sanitized)

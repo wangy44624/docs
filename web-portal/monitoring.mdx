@@ -1,0 +1,111 @@
+# Monitoring & Scheduling
+
+Automate your testing workflow with TestSprite's Monitoring feature. Schedule recurring test executions, track test health over time, and ensure continuous quality assurance without manual intervention.
+
+## What is Monitoring?
+
+The Monitoring feature allows you to schedule automated test executions at regular intervals. Instead of manually running tests, you can set up schedules that automatically execute your test lists, providing continuous monitoring of your application's health and performance.
+
+## Key Benefits
+
+### **Continuous Quality Assurance**
+- Automatically detect issues before they reach users
+- Monitor application health 24/7
+- Catch regressions immediately after deployments
+- Maintain consistent testing without manual effort
+
+### **Flexible Scheduling**
+- Set up recurring test executions
+- Choose from multiple scheduling options
+- Monitor next run times and execution history
+- Pause or modify schedules as needed
+
+### **Proactive Issue Detection**
+- Get notified immediately when tests fail
+- Track trends and patterns in test results
+- Identify performance degradation over time
+- Maintain high application reliability
+
+## Getting Started with Monitoring
+
+### Prerequisites
+
+**Before Setting Up Schedules:**
+1. **Create Test Lists** - You need existing test lists to schedule
+2. **Verify Test Stability** - Ensure your tests run reliably
+3. **Set Up Notifications** - Configure how you want to receive alerts
+4. **Check Account Limits** - Verify your plan supports scheduling
+
+### Creating Your First Schedule
+
+1. **Navigate to Monitoring**
+   - Go to MONITORING
+   - Click "New Schedule" to get started
+
+2. **Select Test List**
+   - Choose an existing test list to schedule
+   - Review test cases and execution settings
+   - Confirm test list is ready for automation
+
+3. **Configure Schedule**
+   - Set execution frequency (daily, weekly, monthly)
+   - Choose specific times and days
+   - Configure timezone settings
+   - Set up failure notifications
+
+## Schedule Configuration
+
+### Frequency Options
+
+**Available Scheduling Options:**
+- **Daily** - Execute tests every day at specified time
+- **Weekly** - Run tests on specific days of the week
+- **Monthly** - Schedule tests for specific dates each month
+- **Custom** - Define complex scheduling patterns
+
+**Example Configurations:**
+```yaml
+Daily Schedule:
+  Time: 06:00 AM UTC
+  Frequency: Every day
+  
+Weekly Schedule:
+  Days: Monday, Wednesday, Friday
+  Time: 09:00 AM EST
+  
+Monthly Schedule:
+  Date: 1st of every month
+  Time: 12:00 PM PST
+```
+
+### Timezone Settings
+
+**Important Notes:**
+- All schedules use UTC by default
+- Convert your local time to UTC for accuracy
+- Consider daylight saving time changes
+- Use consistent timezone across your team
+
+## Managing Schedules
+
+### Schedule Dashboard
+
+**Overview Information:**
+
+| Column | Description |
+|--------|-------------|
+| **Schedule Name** | Descriptive name for the scheduled execution |
+| **Test List** | Associated test list that will be executed |
+| **Frequency** | How often the schedule runs (daily, weekly, etc.) |
+| **Next Run** | When the next execution is scheduled |
+| **Status** | Current schedule status (active, paused, completed) |
+| **Last Result** | Result of the most recent execution |
+
+### Schedule Actions
+
+**Available Actions:**
+- **Run Now** - Execute the schedule immediately
+- **Edit Schedule** - Modify timing and configuration
+- **Pause/Resume** - Temporarily disable or re-enable
+- **View Results** - See detailed execution history
+- **Delete Schedule** - Remove schedule permanently

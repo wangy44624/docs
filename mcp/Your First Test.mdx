@@ -1,0 +1,193 @@
+Experience the magic of TestSprite MCP Server with your first automated test in under 10 minutes.
+
+## What You'll Learn
+
+By the end of this guide, you'll have:
+
+<span className="material-icons">check_circle</span> Run your first automated test suite  
+<span className="material-icons">check_circle</span> Seen AI generate comprehensive test plans  
+<span className="material-icons">check_circle</span> Watched tests execute in the cloud  
+<span className="material-icons">check_circle</span> Received detailed test reports  
+<span className="material-icons">check_circle</span> Applied automatic bug fixes
+
+## Prerequisites
+
+Before starting, ensure you have:
+
+<span className="material-icons">check_circle</span> [TestSprite MCP Server installed](/mcp/installation)  
+<span className="material-icons">check_circle</span> A project with a running application (frontend/backend)  
+<span className="material-icons">check_circle</span> Your IDE (Cursor or Windsurf) open
+
+## Step 1: Prepare Your Project
+
+**Start Your Application** - Make sure your application is running locally:
+
+```bash
+# For frontend applications (examples)
+npm run dev          # Usually runs on port 3000, 5173, or 8080
+
+# For backend applications (examples)
+node index.js        # Usually runs on port 8000, 3001, or 4000
+```
+
+**Example Project Structure:**
+```
+my-project/
+├── frontend/          # React, Vue, Angular, etc.
+│   ├── src/
+│   ├── package.json
+│   └── ...
+├── backend/           # Node.js, Python, etc.
+│   ├── app.py
+│   ├── requirements.txt
+│   └── ...
+├── README.md
+└── package.json
+```
+
+## Step 2: The Magic Command
+
+**Open Your IDE Chat** and follow these steps:
+1. **Open** a new chat window in your IDE
+2. **Type** the magic command:
+
+```
+Can you test this project with TestSprite?
+```
+
+3. Drag and drop your project folder into the chat if you'd like to test a specific sub-project
+4. **Press Enter**
+
+That's it! Your AI assistant will now take over and guide you through the entire testing process.
+
+## Step 3: The Automated Workflow
+
+Your AI assistant will automatically execute these steps:
+
+**1. Bootstrap Testing Environment** - The AI calls `testsprite_bootstrap_tests`, opens TestSprite configuration portal where you'll configure test settings.
+
+**2. Generate Code Summary** - The AI calls `testsprite_generate_code_summary`, analyzes your project structure and understands your application features.
+
+**3. Generate Standardized PRD** - The AI calls `testsprite_generate_standardized_prd`, analyzes your uploaded PRD from the configuration step, generates a normalized PRD document, and saves it to your project as `testsprite_tests/standard-prd.json`.
+
+**4. Generate Test Plan** - The AI calls `testsprite_generate_frontend_test_plan` or `testsprite_generate_backend_test_plan`, creates comprehensive test cases and generates comprehensive test plan and individual test files.
+
+**5. Execute Tests** - The AI calls `testsprite_generate_code_and_execute`, generates production-ready test code, runs tests in secure cloud sandbox, and returns detailed results.
+
+## Step 4: Configuration (Required)
+
+When the bootstrap tool opens, you must configure:
+
+**Test Account Credentials** - If your app requires login:
+```
+Username: test@example.com
+Password: your-test-password
+```
+
+**Application URLs:**
+```
+Frontend: http://localhost:5173
+Backend: http://localhost:4000
+```
+
+**Product Requirements Document** - Upload existing PRD (required). Even a draft or low-quality PRD is fine. TestSprite AI will generate a normalized PRD based on your upload.
+
+## Step 5: Review Test Results
+
+After testing, you'll find these files in your project:
+
+```
+testsprite_tests/
+├── tmp/
+│   ├── prd_files/                 # Uploaded PRD files
+│   ├── config.json               # Test configuration
+│   ├── code_summary.json         # Code analysis
+│   ├── report_prompt.json        # AI analysis data
+│   └── test_results.json         # Detailed test results
+├── standard_prd.json             # Normalized PRD
+├── TestSprite_MCP_Test_Report.md # Human-readable report
+├── TestSprite_MCP_Test_Report.html # HTML report
+├── TC001_Login_Success_with_Valid_Credentials.py
+├── TC002_Login_Failure_with_Invalid_Credentials.py
+└── ...                           # Additional test files
+```
+
+**Understanding Test Results** - The test report shows overall coverage, pass rate, failed tests with detailed failure analysis, and categories (Functional, UI/UX, Security, Performance).
+
+## Step 6: Automatic Bug Fixes
+
+**Request Fixes** - After reviewing the test results, simply ask:
+
+```
+Please fix the codebase based on TestSprite testing results.
+```
+
+The AI will analyze failing tests, identify problematic code sections, apply targeted fixes automatically, re-run tests to verify fixes, and iterate until issues are resolved.
+
+## Example Output
+
+**Test Plan Generated:**
+```json
+{
+  "testCases": [
+    {
+      "id": "TC001",
+      "title": "User Authentication Login",
+      "description": "Test user login with valid credentials",
+      "category": "Functional",
+      "priority": "High",
+      "steps": [
+        "Navigate to login page",
+        "Enter valid username and password",
+        "Click login button",
+        "Verify successful login"
+      ]
+    }
+    // ... 17 more test cases
+  ]
+}
+```
+
+**Test Report Summary:**
+```json
+{
+  "summary": {
+    "totalTests": 18,
+    "passed": 12,
+    "failed": 6,
+    "passRate": "67%",
+    "coverage": "85%"
+  },
+  "failures": [
+    {
+      "testId": "TC005",
+      "title": "Admin Panel Access",
+      "error": "Button not found: #admin-delete-btn",
+      "recommendation": "Add missing delete button in admin panel"
+    }
+  ]
+}
+```
+
+## Tips for Success
+
+- **<span className="material-icons">gps_fixed</span> Ensure Apps Are Running** - Frontend and backend should be accessible on standard ports
+- **<span className="material-icons">folder</span> Project Structure** - Include README with setup instructions and descriptive folder names  
+- **<span className="material-icons">vpn_key</span> Test Credentials** - Prepare test user accounts with non-production data
+- **<span className="material-icons">search</span> Review Generated Files** - Check the generated PRD and test plan for accuracy
+
+## Next Steps
+
+<span className="material-icons">celebration</span> **Congratulations!** You've successfully run your first automated test with TestSprite MCP Server.
+
+**Learn More:**
+- [Complete Testing Workflow](/mcp/workflow) - Understand the full process
+- [Examples](/mcp/examples) - See real-world use cases
+
+**Join the Community:**
+- [Discord](https://discord.com/invite/GXWFjCe4an) - Get help and share experiences
+- [GitHub](https://github.com/testsprite/testsprite-mcp) - Contribute and report issues
+
+---
+
+*Ready to dive deeper? Continue to [Testing Workflow](/mcp/workflow) to understand the complete process.* 
