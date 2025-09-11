@@ -53,11 +53,16 @@
             "pages": [
               "mcp/overview",
               "mcp/installation",
-              "mcp/Your First Test",
-              "mcp/workflow",
-              "mcp/tools",
-              "mcp/examples",
-              "mcp/troubleshooting"
+              {
+                "group": "Troubleshooting",
+                "icon": "bug",
+                "pages": [
+                  "troubleshooting/installation-issues",
+                  "troubleshooting/ide-configuration-issues",
+                  "troubleshooting/application-detection-issues",
+                  "troubleshooting/test-execution-issues"
+                ]
+              }
             ]
           },
           {
@@ -67,21 +72,39 @@
               "web-portal/api-testing",
               "web-portal/ui-testing",
               "web-portal/test-lists",
-              "web-portal/monitoring",
+              "web-portal/monitoring"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "faq"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Guides",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Configurations",
+            "pages": [
               "web-portal/api-keys"
             ]
           },
           {
-            "group": "Configuration",
+            "group": "Tutorials",
             "pages": [
-              "configuration/nodejs"
+              "mcp/first-test",
+              "mcp/examples"
             ]
           },
           {
-            "group": "About",
+            "group": "Concepts",
             "pages": [
-              "about",
-              "faq"
+              "mcp/workflow",
+              "mcp/tools"
             ]
           }
         ]
@@ -93,12 +116,6 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "https://calendly.com/contact-hmul/schedule"
-      }
-    ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
@@ -108,13 +125,12 @@
   "contextual": {
     "options": [
      "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
+     {
+      "title": "Edit on GitHub",
+      "description": "Contributions to improve our documentation",
+      "icon": "pen-to-square",
+      "href": "https://github.com/TestSprite/Docs/tree/v1.0"
+    }
    ]
   },
   "footer": {

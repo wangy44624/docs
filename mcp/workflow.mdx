@@ -1,30 +1,33 @@
 ---
-title: "Testing Workflow"
+title: "MCP Testing Workflow"
 description: "Understand the complete TestSprite MCP Server testing process from code analysis to bug fixes."
+icon: "route"
 ---
 
 ## Overview
 
 TestSprite MCP Server follows a systematic 8-step workflow that transforms your code into thoroughly tested, production-ready software:
 
-<Frame>
+<Card>
 ```mermaid
-graph LR
-    A[Bootstrap Environment] --> B[Read User PRD]
-    A --> C[Analyze Code]
-    B --> D[Generate TestSprite PRD]
+flowchart LR
+    A[" Bootstrap Environment<br/>Initialize testing setup"] --> B["Read User PRD<br/>Parse requirements"]
+    A --> C["Analyze Code<br/>Understand codebase"]
+    
+    B --> D["Generate TestSprite PRD<br/>Create normalized requirements"]
     C --> D
-    D --> E[Create Test Plans]
-    E --> F[Generate Test Code]
-    F --> G[Execute Tests]
-    G --> H[Provide Results & Analysis]
-    H --> I[AI Fixes Issues]
+    
+    D --> E["Create Test Plans<br/>Design comprehensive tests"]
+    E --> F["Generate Test Code<br/>Create executable tests"]
+    F --> G["Execute Tests<br/>Run in cloud sandbox"]
+    G --> H["Results & Analysis<br/>Generate detailed reports"]
+    H --> I["AI Fixes Issues<br/>Apply automatic repairs"]
 ```
-</Frame>
+</Card>
 
 ## Step 1: Bootstrap Testing Environment
 
-**What Happens** - The AI calls `testsprite_bootstrap_tests` to initialize the testing environment.
+The AI calls `testsprite_bootstrap_tests` to initialize the testing environment.
 
 **Process:**
 1. **Project Detection** - Identifies project type (`frontend` or `backend`)
@@ -33,7 +36,7 @@ graph LR
 4. **Scope Definition** - Determines testing scope (`codebase` or `diff`)
 
 **Configuration Options:**
-```json
+```json Sample Configuration
 {
   "projectType": "frontend",
   "localPort": 5173,
@@ -48,7 +51,7 @@ graph LR
 
 ## Step 2: Read User PRD
 
-**What Happens** - TestSprite reads the Product Requirements Document (PRD) that you upload to understand your product goals and requirements.
+TestSprite reads the Product Requirements Document (PRD) that you upload to understand your product goals and requirements.
 
 **Process:**
 1. **PRD Upload** - Reads the PRD file you uploaded during configuration
@@ -58,7 +61,7 @@ graph LR
 
 ## Step 3: Code Analysis & Summary
 
-**What Happens** - The AI calls `testsprite_generate_code_summary` to analyze your codebase.
+The AI calls `testsprite_generate_code_summary` to analyze your codebase.
 
 **Analysis Process:**
 1. **Structure Mapping** - Identifies files, folders, and dependencies
@@ -68,7 +71,7 @@ graph LR
 5. **Security Assessment** - Identifies potential vulnerabilities
 
 **Generated Output:**
-```json
+```json Expandable Sample Output
 {
   "tech_stack": [
     "React",
@@ -96,10 +99,11 @@ graph LR
 
 ## Step 4: Generate TestSprite Normalized PRD
 
-**What Happens** - The AI calls `testsprite_generate_standardized_prd` to create a standardized, normalized Product Requirements Document based on the user PRD and code analysis.
+The AI calls `testsprite_generate_standardized_prd` to create a standardized, normalized Product Requirements Document based on the user PRD and code analysis.
 
-### <span style={{color: '#0066cc', fontWeight: 'bold'}}><span className="material-icons">lightbulb</span> TestSprite Innovation</span>
-<span style={{color: '#0066cc'}}>**TestSprite invented this normalized PRD format** - a standardized structure that ensures consistent test generation across any project type, regardless of your original PRD format.</span>
+### TestSprite Innovation
+<Tip>**TestSprite invented this normalized PRD format** - a standardized structure that ensures consistent test generation across any project type, regardless of your original PRD format.</Tip>
+
 
 **PRD Components:**
 1. **Product Overview** - High-level description and goals
@@ -109,7 +113,7 @@ graph LR
 5. **Validation Criteria** - Test requirements and acceptance criteria
 
 **Generated PRD Structure:**
-```json
+```json Expandable Sample Output
 {
   "meta": {
     "project": "Your Application Name",
@@ -153,7 +157,7 @@ graph LR
 
 ## Step 5: Create Test Plans
 
-**What Happens** - The AI calls `testsprite_generate_frontend_test_plan` or `testsprite_generate_backend_test_plan` based on project type, using the normalized PRD and code analysis.
+The AI calls `testsprite_generate_frontend_test_plan` or `testsprite_generate_backend_test_plan` based on project type, using the normalized PRD and code analysis.
 
 **Test Plan Components:**
 1. **Test Cases** - Detailed scenarios with steps
@@ -163,7 +167,7 @@ graph LR
 5. **Expected Results** - Success criteria and validation points
 
 **Generated Test Plan:**
-```json
+```json Expandable Sample Output
 [
   {
     "id": "TC001",
@@ -204,7 +208,7 @@ graph LR
 
 ## Step 6: Generate Executable Test Code
 
-**What Happens** - The AI calls `testsprite_generate_code_and_execute` to create production-ready test code based on the test plans.
+The AI calls `testsprite_generate_code_and_execute` to create production-ready test code based on the test plans.
 
 **Test Code Generation Process:**
 1. **Framework Selection** - Chooses appropriate testing framework (Playwright, Cypress, Jest)
@@ -215,7 +219,7 @@ graph LR
 
 **Generated Test Code Examples:**
 
-```python
+```python Expandable Sample Output
 # TC001_Login_success_with_valid_test_credentials.py
 import asyncio
 from playwright import async_api
@@ -259,7 +263,7 @@ async def run_test():
 
 ## Step 7: Execute Tests
 
-**What Happens** - TestSprite runs the generated test code in secure cloud environments.
+TestSprite runs the generated test code in secure cloud environments.
 
 **Cloud Execution Process:**
 1. **Sandbox Creation** - Isolated testing environment
@@ -279,47 +283,51 @@ TestSprite generates comprehensive test reports with detailed analysis, error de
 - **Coverage metrics** showing overall project health
 - **Requirement breakdown** organized by feature areas
 
-**Test Report Structure** - After running tests, TestSprite creates a detailed report showing exactly what worked and what needs fixing. Here's what you'll see in your test report:
+**Test Report Structure** 
 
-**Basic Information** - Every report starts with essential details:
-- **Project Name** - The name of your application  
-- **Test Date** - When the tests were run
-- **Version** - Which version was tested
-- **Summary** - Quick overview of results
+After running tests, TestSprite creates a detailed report showing exactly what worked and what needs fixing.
 
-**Test Results by Feature** - The report groups tests by your app's main features. Each feature section shows:
+<Accordion title="View Detailed Report Structure">
+  **Basic Information** - Every report starts with essential details:
+  - **Project Name** - The name of your application  
+  - **Test Date** - When the tests were run
+  - **Version** - Which version was tested
+  - **Summary** - Quick overview of results
 
-**Feature Overview:**
-- **What it does** - Simple description of the feature
-- **How many tests** - Number of tests run for this feature
+  **Test Results by Feature** - The report groups tests by your app's main features. Each feature section shows:
 
-**Each Test Shows:**
-- **Test ID** - Unique identifier like "TC001"
-- **What was tested** - Clear description like "Login with valid password"
-- **Result** - <span className="material-icons" style={{ color: '#4caf50', fontSize: '16px' }}>check_circle</span> **Passed** or <span className="material-icons" style={{ color: '#f44336', fontSize: '16px' }}>cancel</span> **Failed**
-- **Priority** - High, Medium, or Low importance
-- **What went wrong** - Detailed error explanation (if failed)
-- **How to fix it** - Specific recommendations for repairs
+  **Feature Overview:**
+  - **What it does** - Simple description of the feature
+  - **How many tests** - Number of tests run for this feature
 
-**Overall Results Summary:**
+  **Each Test Shows:**
+  - **Test ID** - Unique identifier like "TC001"
+  - **What was tested** - Clear description like "Login with valid password"
+  - **Result** - <span className="material-icons" style={{ color: '#4caf50', fontSize: '16px' }}>check_circle</span> **Passed** or <span className="material-icons" style={{ color: '#f44336', fontSize: '16px' }}>cancel</span> **Failed**
+  - **Priority** - High, Medium, or Low importance
+  - **What went wrong** - Detailed error explanation (if failed)
+  - **How to fix it** - Specific recommendations for repairs
 
-**Quick Stats:**
-- **73% of features tested** - How much of your app was covered
-- **56% of tests passed** - Overall success rate  
-- **Critical issues found** - Most important problems to fix
+  **Overall Results Summary:**
 
-**Feature-by-Feature Breakdown:**
+  **Quick Stats:**
+  - **73% of features tested** - How much of your app was covered
+  - **56% of tests passed** - Overall success rate  
+  - **Critical issues found** - Most important problems to fix
 
-| Feature Area | Tests Run | <span className="material-icons">check_circle</span> Passed | <span className="material-icons">cancel</span> Failed |
-|--------------|-----------|------------|-----------|
-| User Login | 2 | 1 | 1 |
-| Product Display | 2 | 2 | 0 |
-| Admin Panel | 3 | 0 | 3 |
-| Shopping Cart | 3 | 3 | 0 |
+  **Feature-by-Feature Breakdown:**
+
+  | Feature Area | Tests Run | <span className="material-icons">check_circle</span> Passed | <span className="material-icons">cancel</span> Failed |
+  |--------------|-----------|------------|-----------|
+  | User Login | 2 | 1 | 1 |
+  | Product Display | 2 | 2 | 0 |
+  | Admin Panel | 3 | 0 | 3 |
+  | Shopping Cart | 3 | 3 | 0 |
+</Accordion>
 
 ## Step 9: AI Fixes Issues Based on Report
 
-**How Fixes Work** - When you request fixes with "Help me fix the codebase based on these test results", your IDE AI assistant:
+When you request fixes with **"Help me fix the codebase based on these test results"**, your IDE AI assistant:
 
 1. **Reads Test Results** - Reviews `testsprite_tests/tmp/test_results.json` for detailed failure data
 2. **Analyzes Test Report** - Processes `testsprite_tests/tmp/report_prompt.json` for context and recommendations
@@ -329,10 +337,10 @@ TestSprite generates comprehensive test reports with detailed analysis, error de
 6. **Applies Changes** - Modifies your codebase automatically
 7. **Validates Fixes** - Re-runs tests to verify solutions
 
-**TestSprite's Role** - TestSprite provides the analysis and recommendations, while your IDE's AI assistant implements the actual fixes.
+<Tip>**TestSprite's Role** - TestSprite provides the analysis and recommendations, while your IDE's AI assistant implements the actual fixes.</Tip>
 
 **Example Fix Application:**
-```javascript
+```javascript Expandable Sample Output
 // Before (failing test)
 // Missing delete button in admin panel
 
@@ -360,32 +368,41 @@ const AdminProductCard = ({ product, onDelete }) => {
 
 ## Workflow Optimization Tips
 
-**Before Testing:**
-- <span className="material-icons">check_circle</span> Ensure all applications are running  
-- <span className="material-icons">check_circle</span> Prepare test credentials  
-- <span className="material-icons">check_circle</span> Update README with project description  
-- <span className="material-icons">check_circle</span> Clean up any development artifacts
+<AccordionGroup>
+  <Accordion title="Before Testing">
+    - Ensure all applications are running  
+    - Prepare test credentials  
+    - Update README with project description  
+    - Clean up any development artifacts
+  </Accordion>
 
-**During Testing:**
-- <span className="material-icons">check_circle</span> Review generated PRD for accuracy  
-- <span className="material-icons">check_circle</span> Examine test plan coverage  
-- <span className="material-icons">check_circle</span> Monitor test execution progress  
-- <span className="material-icons">check_circle</span> Note any configuration adjustments needed
+  <Accordion title="During Testing">
+    - Review generated PRD for accuracy  
+    - Examine test plan coverage  
+    - Monitor test execution progress  
+    - Note any configuration adjustments needed
+  </Accordion>
 
-**After Testing:**
-- <span className="material-icons">check_circle</span> Analyze test results thoroughly  
-- <span className="material-icons">check_circle</span> Understand failure patterns  
-- <span className="material-icons">check_circle</span> Apply fixes systematically  
-- <span className="material-icons">check_circle</span> Document lessons learned
+  <Accordion title="After Testing">
+    - Analyze test results thoroughly  
+    - Understand failure patterns  
+    - Apply fixes systematically  
+    - Document lessons learned
+  </Accordion>
+</AccordionGroup>
 
 ## Next Steps
 
 Now that you understand the complete workflow, explore:
 
-- [MCP Tools Reference](/mcp/tools) - Deep dive into available tools
-- [Examples](/mcp/examples) - See real-world implementations
-- [Troubleshooting](/mcp/troubleshooting) - Solve common issues
-
----
-
-*The TestSprite MCP Server workflow transforms your development process from manual testing to automated quality assurance. Every step is designed to maximize coverage while minimizing your effort.* 
+<Columns cols={2}>
+  <Card title="MCP Tools Reference" href="/mcp/tools">
+  Deep dive into available tools
+  </Card>
+  <Card title="View Examples" href="/mcp/examples">
+  See real-world implementations
+  </Card>
+  <Card title="Troubleshooting" href="/mcp/troubleshooting">
+  Solve common issues
+  </Card>
+</Columns>

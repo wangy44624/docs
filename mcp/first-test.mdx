@@ -1,14 +1,13 @@
 ---
-title: "Your First Test"
+title: "Your First MCP Test"
 description: "Experience the magic of TestSprite MCP Server with your first automated test in under 10 minutes."
+icon: "flag-checkered"
 ---
 
 By the end of this guide, you'll have run your first **automated test suite**, seen AI generate comprehensive test plans, watched tests execute in the cloud, received detailed test reports, and applied **automatic bug fixes**.
 
 <Info>
-Before starting, ensure you have: 
-- [TestSprite MCP Server installed](/mcp/installation) 
-- Your IDE open
+Before starting, ensure you have [TestSprite MCP Server installed](/mcp/installation) and **your IDE open**.
 </Info>
 
 ## Step 1: Prepare Your Project
@@ -56,17 +55,7 @@ That's it! Your AI assistant will now take over and guide you through the entire
 
 Your AI assistant will automatically handle the **entire testing process** by running through these steps. It takes care of everything from understanding your project to running the actual tests, so you don't have to do any of the work manually.
 
-<Accordion title="View Detailed Steps">
-  1. **Bootstrap Testing Environment** - The AI calls `testsprite_bootstrap_tests`, opens TestSprite configuration portal where you'll configure test settings.
-
-  2. **Generate Code Summary** - The AI calls `testsprite_generate_code_summary`, analyzes your project structure and understands your application features.
-
-  3. **Generate Standardized PRD** - The AI calls `testsprite_generate_standardized_prd`, analyzes your uploaded PRD from the configuration step, generates a normalized PRD document, and saves it to your project as `testsprite_tests/standard-prd.json`.
-
-  4. **Generate Test Plan** - The AI calls `testsprite_generate_frontend_test_plan` or `testsprite_generate_backend_test_plan`, creates comprehensive test cases and generates comprehensive test plan and individual test files.
-
-  5. **Execute Tests** - The AI calls `testsprite_generate_code_and_execute`, generates production-ready test code, runs tests in secure cloud sandbox, and returns detailed results.
-</Accordion>
+Learn more about details steps at [Testing Workflow](/mcp/workflow).
 
 ## Step 4: Configuration (Required)
 

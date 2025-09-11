@@ -1,5 +1,34 @@
 /* Custom Scrollbar Styles for TestSprite Documentation */
 
+/* IMMEDIATE FORCE TEST - Remove this after testing */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #2F3033 #17181A !important;
+}
+
+*::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background: #17181A !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #2F3033 !important;
+  border-radius: 4px !important;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a !important;
+}
+/* END FORCE TEST */
+
 /* Webkit-based browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
   width: 8px;
@@ -29,53 +58,62 @@
   background: #f1f5f9;
 }
 
-/* Dark mode scrollbar */
+/* Dark mode scrollbar - High Priority */
 @media (prefers-color-scheme: dark) {
   ::-webkit-scrollbar-track {
-    background: #0f0f0f;
+    background: transparent !important;
+  }
+
+  ::-webkit-scrollbar-track:hover {
+    background: #17181A !important;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #2F3033 !important;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #3a3a3a;
+    background: #3a3a3a !important;
   }
 
   ::-webkit-scrollbar-thumb:active {
-    background: #4a4a4a;
+    background: #4a4a4a !important;
   }
 
   ::-webkit-scrollbar-corner {
-    background: #0f0f0f;
+    background: transparent !important;
   }
 }
 
-/* Manual dark mode class support */
+/* Manual dark mode class support - High Priority */
 [data-theme="dark"] ::-webkit-scrollbar-track,
 .dark ::-webkit-scrollbar-track {
-  background: #0f0f0f;
+  background: transparent !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track:hover,
+.dark ::-webkit-scrollbar-track:hover {
+  background: #17181A !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb,
 .dark ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #2F3033 !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb:hover,
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a3a;
+  background: #3a3a3a !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-thumb:active,
 .dark ::-webkit-scrollbar-thumb:active {
-  background: #4a4a4a;
+  background: #4a4a4a !important;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar-corner,
 .dark ::-webkit-scrollbar-corner {
-  background: #0f0f0f;
+  background: transparent !important;
 }
 
 /* Firefox scrollbar styling */
@@ -84,16 +122,16 @@ html {
   scrollbar-color: #cbd5e1 #f1f5f9;
 }
 
-/* Dark mode for Firefox */
+/* Dark mode for Firefox - High Priority */
 @media (prefers-color-scheme: dark) {
   html {
-    scrollbar-color: #2a2a2a #0f0f0f;
+    scrollbar-color: #2F3033 #17181A !important;
   }
 }
 
 [data-theme="dark"] html,
 .dark html {
-  scrollbar-color: #2a2a2a #0f0f0f;
+  scrollbar-color: #2F3033 #17181A !important;
 }
 
 /* Custom scrollbar for specific containers */
@@ -123,11 +161,15 @@ html {
 /* Dark mode for scrollable containers */
 @media (prefers-color-scheme: dark) {
   .scrollable-container {
-    scrollbar-color: #2a2a2a transparent;
+    scrollbar-color: #2F3033 transparent;
+  }
+
+  .scrollable-container::-webkit-scrollbar-track:hover {
+    background: #17181A;
   }
 
   .scrollable-container::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #2F3033;
   }
 
   .scrollable-container::-webkit-scrollbar-thumb:hover {
@@ -137,12 +179,17 @@ html {
 
 [data-theme="dark"] .scrollable-container,
 .dark .scrollable-container {
-  scrollbar-color: #2a2a2a transparent;
+  scrollbar-color: #2F3033 transparent;
+}
+
+[data-theme="dark"] .scrollable-container::-webkit-scrollbar-track:hover,
+.dark .scrollable-container::-webkit-scrollbar-track:hover {
+  background: #17181A;
 }
 
 [data-theme="dark"] .scrollable-container::-webkit-scrollbar-thumb,
 .dark .scrollable-container::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #2F3033;
 }
 
 [data-theme="dark"] .scrollable-container::-webkit-scrollbar-thumb:hover,
@@ -155,6 +202,148 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Specific styles for left sidebar scrollbar */
+.sidebar, .nav-sidebar, [data-testid="sidebar"], .nextra-sidebar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.sidebar::-webkit-scrollbar,
+.nav-sidebar::-webkit-scrollbar,
+[data-testid="sidebar"]::-webkit-scrollbar,
+.nextra-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track,
+.nav-sidebar::-webkit-scrollbar-track,
+[data-testid="sidebar"]::-webkit-scrollbar-track,
+.nextra-sidebar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.sidebar::-webkit-scrollbar-thumb,
+.nav-sidebar::-webkit-scrollbar-thumb,
+[data-testid="sidebar"]::-webkit-scrollbar-thumb,
+.nextra-sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+/* Dark mode for left sidebar */
+@media (prefers-color-scheme: dark) {
+  .sidebar, .nav-sidebar, [data-testid="sidebar"], .nextra-sidebar {
+    scrollbar-color: #2F3033 transparent;
+  }
+
+  .sidebar::-webkit-scrollbar-track,
+  .nav-sidebar::-webkit-scrollbar-track,
+  [data-testid="sidebar"]::-webkit-scrollbar-track,
+  .nextra-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .sidebar::-webkit-scrollbar-track:hover,
+  .nav-sidebar::-webkit-scrollbar-track:hover,
+  [data-testid="sidebar"]::-webkit-scrollbar-track:hover,
+  .nextra-sidebar::-webkit-scrollbar-track:hover {
+    background: #17181A;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb,
+  .nav-sidebar::-webkit-scrollbar-thumb,
+  [data-testid="sidebar"]::-webkit-scrollbar-thumb,
+  .nextra-sidebar::-webkit-scrollbar-thumb {
+    background: #2F3033;
+  }
+
+  .sidebar::-webkit-scrollbar-thumb:hover,
+  .nav-sidebar::-webkit-scrollbar-thumb:hover,
+  [data-testid="sidebar"]::-webkit-scrollbar-thumb:hover,
+  .nextra-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+  }
+}
+
+[data-theme="dark"] .sidebar,
+[data-theme="dark"] .nav-sidebar,
+[data-theme="dark"] [data-testid="sidebar"],
+[data-theme="dark"] .nextra-sidebar,
+.dark .sidebar,
+.dark .nav-sidebar,
+.dark [data-testid="sidebar"],
+.dark .nextra-sidebar {
+  scrollbar-color: #2F3033 transparent;
+}
+
+[data-theme="dark"] .sidebar::-webkit-scrollbar-track,
+[data-theme="dark"] .nav-sidebar::-webkit-scrollbar-track,
+[data-theme="dark"] [data-testid="sidebar"]::-webkit-scrollbar-track,
+[data-theme="dark"] .nextra-sidebar::-webkit-scrollbar-track,
+.dark .sidebar::-webkit-scrollbar-track,
+.dark .nav-sidebar::-webkit-scrollbar-track,
+.dark [data-testid="sidebar"]::-webkit-scrollbar-track,
+.dark .nextra-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[data-theme="dark"] .sidebar::-webkit-scrollbar-track:hover,
+[data-theme="dark"] .nav-sidebar::-webkit-scrollbar-track:hover,
+[data-theme="dark"] [data-testid="sidebar"]::-webkit-scrollbar-track:hover,
+[data-theme="dark"] .nextra-sidebar::-webkit-scrollbar-track:hover,
+.dark .sidebar::-webkit-scrollbar-track:hover,
+.dark .nav-sidebar::-webkit-scrollbar-track:hover,
+.dark [data-testid="sidebar"]::-webkit-scrollbar-track:hover,
+.dark .nextra-sidebar::-webkit-scrollbar-track:hover {
+  background: #17181A;
+}
+
+[data-theme="dark"] .sidebar::-webkit-scrollbar-thumb,
+[data-theme="dark"] .nav-sidebar::-webkit-scrollbar-thumb,
+[data-theme="dark"] [data-testid="sidebar"]::-webkit-scrollbar-thumb,
+[data-theme="dark"] .nextra-sidebar::-webkit-scrollbar-thumb,
+.dark .sidebar::-webkit-scrollbar-thumb,
+.dark .nav-sidebar::-webkit-scrollbar-thumb,
+.dark [data-testid="sidebar"]::-webkit-scrollbar-thumb,
+.dark .nextra-sidebar::-webkit-scrollbar-thumb {
+  background: #2F3033;
+}
+
+[data-theme="dark"] .sidebar::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] .nav-sidebar::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] [data-testid="sidebar"]::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] .nextra-sidebar::-webkit-scrollbar-thumb:hover,
+.dark .sidebar::-webkit-scrollbar-thumb:hover,
+.dark .nav-sidebar::-webkit-scrollbar-thumb:hover,
+.dark [data-testid="sidebar"]::-webkit-scrollbar-thumb:hover,
+.dark .nextra-sidebar::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Specific styles for main content area */
+.main-content, .content-wrapper, main, [role="main"] {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Dark mode for main content */
+@media (prefers-color-scheme: dark) {
+  .main-content, .content-wrapper, main, [role="main"] {
+    scrollbar-color: #2F3033 transparent;
+  }
+}
+
+[data-theme="dark"] .main-content,
+[data-theme="dark"] .content-wrapper,
+[data-theme="dark"] main,
+[data-theme="dark"] [role="main"],
+.dark .main-content,
+.dark .content-wrapper,
+.dark main,
+.dark [role="main"] {
+  scrollbar-color: #2F3033 transparent;
+}
+
 /* Hide scrollbar for specific elements when needed */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE and Edge */
@@ -163,4 +352,55 @@ html {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Force dark mode scrollbars for common frameworks and body */
+@media (prefers-color-scheme: dark) {
+  body::-webkit-scrollbar-track,
+  html::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+
+  body::-webkit-scrollbar-track:hover,
+  html::-webkit-scrollbar-track:hover {
+    background: #17181A !important;
+  }
+
+  body::-webkit-scrollbar-thumb,
+  html::-webkit-scrollbar-thumb {
+    background: #2F3033 !important;
+  }
+
+  body::-webkit-scrollbar-thumb:hover,
+  html::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a !important;
+  }
+}
+
+[data-theme="dark"] body::-webkit-scrollbar-track,
+[data-theme="dark"] html::-webkit-scrollbar-track,
+.dark body::-webkit-scrollbar-track,
+.dark html::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+[data-theme="dark"] body::-webkit-scrollbar-track:hover,
+[data-theme="dark"] html::-webkit-scrollbar-track:hover,
+.dark body::-webkit-scrollbar-track:hover,
+.dark html::-webkit-scrollbar-track:hover {
+  background: #17181A !important;
+}
+
+[data-theme="dark"] body::-webkit-scrollbar-thumb,
+[data-theme="dark"] html::-webkit-scrollbar-thumb,
+.dark body::-webkit-scrollbar-thumb,
+.dark html::-webkit-scrollbar-thumb {
+  background: #2F3033 !important;
+}
+
+[data-theme="dark"] body::-webkit-scrollbar-thumb:hover,
+[data-theme="dark"] html::-webkit-scrollbar-thumb:hover,
+.dark body::-webkit-scrollbar-thumb:hover,
+.dark html::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a !important;
 }
