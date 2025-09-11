@@ -1,89 +1,133 @@
-# Test Lists
-
 Organize and manage your testing projects efficiently with TestSprite's Test Lists feature. Create reusable test collections, track execution history, and streamline your testing workflow.
+
+
+---
 
 ## What are Test Lists?
 
 Test Lists are organized collections of test cases that help you group related tests together. Whether you're testing different features, environments, or user flows, Test Lists provide a structured way to manage your testing efforts.
 
+
+---
+
 ## Key Features
 
-### **Centralized Test Management**
-- View all your test lists in one dashboard
-- Track execution status across all test collections
-- Search and filter tests by name or status
-- Sort by execution date, test count, or test type
+<CardGroup cols={2}>
+  <Card title="Centralized Test Management" icon="chart-line">
+    View all test lists in one dashboard, track execution status across collections, search and filter by name or status, and sort by date, count, or type
+  </Card>
+  <Card title="Test Organization" icon="folder">
+    Organize Frontend Tests with browser automation, Backend Tests for API functionality, and Mixed Collections combining both test types
+  </Card>
+</CardGroup>
 
-### **Test Organization**
-- **Frontend Tests**: UI/UX testing with browser automation
-- **Backend Tests**: API and server-side functionality testing
-- **Mixed Collections**: Combine frontend and backend tests in one list
+<CardGroup cols={1}>
+  <Card title="Execution Tracking" icon="clock">
+    **Previous Execution:** View the status of the test's last run
+    
+    **Status Indicators:**
+    - **Passed** - All tests completed successfully
+    - **Attention** - Some tests need review  
+    - **Failed** - Tests encountered errors
+  </Card>
+</CardGroup>
 
-### **Execution Tracking**
-- **Previous Execution**: View the status of the test's last run
-- **Status Indicators**: 
-  - **Passed** - All tests completed successfully
-  - **Attention** - Some tests need review
-  - **Failed** - Tests encountered errors
+
+---
 
 ## Creating Test Lists
 
-### Getting Started
+### <span style={{ opacity: 0.7 }}>Getting Started</span>
 
-1. **Navigate to Test Lists**
-   - Go to Dashboard → Test Lists
-   - Click "New List" to get started
 
-2. **Add Test Cases**
-   - Create new test cases though "Create Tests"
-   - Configure web application information for test generation
-   - Let TestSprite's AI generate comprehensive test cases
+<Steps>
+  <Step title="Navigate to Test Lists">
+    Go to Dashboard → Test Lists and click "New List" to get started
+  </Step>
+  <Step title="Add Test Cases">
+    Create new test cases through "Create Tests", configure web application information, and let TestSprite's AI generate comprehensive test cases
+  </Step>
+  <Step title="Organize and Configure">
+    Name your test list descriptively, review and customize generated test cases, and maintain your test lists as needed
+  </Step>
+</Steps>
 
-3. **Organize and Configure**
-   - Name your test list descriptively
-   - Review and customize generated test cases
-   - Maintain your test lists as needed
+
+---
 
 ## Managing Test Lists
 
-### Search and Filter
+### <span style={{ opacity: 0.7 }}>Search and Filter</span>
 
-**Search Functionality:**
-```
-Search by test list name to quickly find specific collections
-```
 
-**Filter Options:**
-- **All Status** - View all test lists regardless of status
-- **Passed** - Show only successfully executed test lists
-- **Attention** - Filter test lists needing review
-- **Failed** - Display test lists with execution errors
+<CardGroup cols={2}>
+  <Card title="Search Functionality" icon="magnifying-glass">
+    Search by test list name to quickly find specific collections
+  </Card>
+  <Card title="Filter Options" icon="filter">
+    **All Status** - View all test lists regardless of status
+    
+    **Passed** - Show only successfully executed test lists
+    
+    **Attention** - Filter test lists needing review
+    
+    **Failed** - Display test lists with execution errors
+  </Card>
+</CardGroup>
 
-### Sorting Options
 
-**Sort By:**
-- **Total test cases** - Order by number of tests in the list
-- **Previous execution date** - Sort by most recently executed
-- **Total frontend test** - Order by frontend test count
-- **Total backend test** - Sort by backend test count
+### <span style={{ opacity: 0.7 }}>Sorting Options</span>
+
+<CardGroup cols={2}>
+  <Card title="Test Volume Sorting" icon="list-ol">
+    **Total test cases** - Order by number of tests in the list
+    
+    **Total frontend test** - Order by frontend test count
+    
+    **Total backend test** - Sort by backend test count
+  </Card>
+  <Card title="Time-Based Sorting" icon="clock">
+    **Previous execution date** - Sort by most recently executed
+  </Card>
+</CardGroup>
+
+
+---
 
 ## Test List Details
 
-### Overview Information
+### <span style={{ opacity: 0.7 }}>Overview Information</span>
+
 
 Each test list displays:
 
-| Field | Description |
-|-------|-------------|
-| **Test List Name** | Descriptive identifier for your test collection |
-| **Previous Execution** | Last run date and time |
-| **Total Test Cases** | Combined count of all tests in the list |
-| **Total Frontend Test** | Number of UI/browser tests |
-| **Total Backend Test** | Number of API/server tests |
 
-### Execution Actions
+<CardGroup cols={2}>
+  <Card title="Test List Name">
+    Descriptive identifier for your test collection
+  </Card>
+  <Card title="Previous Execution">
+    Last run date and time
+  </Card>
+</CardGroup>
+
+<CardGroup cols={3}>
+  <Card title="Total Test Cases">
+    Combined count of all tests in the list
+  </Card>
+  <Card title="Total Frontend Test">
+    Number of UI/browser tests
+  </Card>
+  <Card title="Total Backend Test">
+    Number of API/server tests
+  </Card>
+</CardGroup>
+
+
+### <span style={{ opacity: 0.7 }}>Execution Actions</span>
 
 **Available Actions:**
+
 - **Run Tests** - Execute all tests in the list
 - **View Results** - Review detailed test reports
 - **Delete List** - Remove test list (with confirmation)
