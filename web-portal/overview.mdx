@@ -1,25 +1,23 @@
+---
+title: "Overview"
+description: "Web dashboard for API keys, test management, and automated monitoring."
+icon: "book"
+---
+
 ## Video Introduction
 
-
-<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', maxWidth: '100%', background: '#000' }}>
+<Frame>
   <iframe 
+    width="100%" 
+    height="400" 
     src="https://www.youtube.com/embed/3mU5BJU_VHk" 
-    title="TestSprite Web Portal Demo" 
     frameBorder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
     allowFullScreen
-    style={{
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      borderRadius: '8px'
-    }}
-  />
-</div>
-
----
+    style={{ borderRadius: '8px'}}
+  ></iframe>
+</Frame>
+<br />
 
 ## Step 1: Customer Input
 
@@ -30,8 +28,6 @@ Simply provide your application details to get started:
 - **Testing requirements** - Specific scenarios you want covered
 
 Our AI analyzes your application in real-time to create a completely customized testing plan. No templates, no generic approaches—every test suite is uniquely generated for your specific needs.
-
----
 
 ## Step 2: Test Plans Auto Generation
 
@@ -59,14 +55,9 @@ Generated testing plan for [Amazon S3 `create_bucket` API](https://boto3.amazona
 6. **...**
 </Accordion>
 
----
-
 ## Step 3: User Review & Confirmation
 
 Before proceeding, users can review the automatically generated test plans. This step allows you to <span style={{ color: "#10A363" }}> **manually adjust**</span>, add, or remove specific tests and ensure the generated plans align with your testing goals.
-
----
-
 ## Step 4: Test Code Auto Generation (Implementation)
 
 <Steps>
@@ -91,7 +82,7 @@ Before proceeding, users can review the automatically generated test plans. This
 Based on the test plan from Step 2, here's an example of the actual Python test code that TestSprite's AI automatically creates:
 
 <Accordion title="View Generated Test Code Example">
-```python filename="s3_bucket_testing.py" copy
+```python Expandable Sample Test Code
 import unittest
 import boto3
 from botocore.exceptions import ClientError
@@ -134,13 +125,9 @@ if __name__ == '__main__':
 ```
 </Accordion>
 
----
-
 ## Step 5: Test Execution
 
 TestSprite automatically executes the generated test cases in our cloud environment, closely monitoring the results to promptly detect any issues.
-
----
 
 ## Step 6: Review and Adjust
 
@@ -162,8 +149,6 @@ TestSprite automatically executes the generated test cases in our cloud environm
 - **VS Code plugin** for direct console adjustments
 - **AI chat assistant** for questions and modifications  
 - **Prompt editing** to regenerate test cases
-
----
 
 ## Step 7: Final Testing Report
 

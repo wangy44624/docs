@@ -1,14 +1,15 @@
-Organize and manage your testing projects efficiently with TestSprite's Test Lists feature. Create reusable test collections, track execution history, and streamline your testing workflow.
-
-
 ---
+title: "Test Lists"
+description: "Organize test collections, track execution history, and manage testing projects efficiently."
+icon: "list"
+---
+
 
 ## What are Test Lists?
 
 Test Lists are organized collections of test cases that help you group related tests together. Whether you're testing different features, environments, or user flows, Test Lists provide a structured way to manage your testing efforts.
 
 
----
 
 ## Key Features
 
@@ -23,22 +24,13 @@ Test Lists are organized collections of test cases that help you group related t
 
 <CardGroup cols={1}>
   <Card title="Execution Tracking" icon="clock">
-    **Previous Execution:** View the status of the test's last run
-    
-    **Status Indicators:**
-    - **Passed** - All tests completed successfully
-    - **Attention** - Some tests need review  
-    - **Failed** - Tests encountered errors
+    Track your **previous execution** status to view the test's last run with **status indicators** showing **Passed** (all tests completed successfully), **Attention** (some tests need review), or **Failed** (tests encountered errors).
   </Card>
 </CardGroup>
 
 
----
 
 ## Creating Test Lists
-
-### <span style={{ opacity: 0.7 }}>Getting Started</span>
-
 
 <Steps>
   <Step title="Navigate to Test Lists">
@@ -53,80 +45,55 @@ Test Lists are organized collections of test cases that help you group related t
 </Steps>
 
 
----
 
 ## Managing Test Lists
 
-### <span style={{ opacity: 0.7 }}>Search and Filter</span>
-
-
-<CardGroup cols={2}>
-  <Card title="Search Functionality" icon="magnifying-glass">
+<Tabs>
+  <Tab title="Search & Filter">
+    **Search Functionality:**
     Search by test list name to quickly find specific collections
-  </Card>
-  <Card title="Filter Options" icon="filter">
-    **All Status** - View all test lists regardless of status
     
-    **Passed** - Show only successfully executed test lists
+    **Filter Options:**
+    - **All Status** - View all test lists regardless of status
+    - **Passed** - Show only successfully executed test lists
+    - **Attention** - Filter test lists needing review
+    - **Failed** - Display test lists with execution errors
+  </Tab>
+  <Tab title="Sorting Options">
+    **Test Volume Sorting:**
+    - **Total test cases** - Order by number of tests in the list
+    - **Total frontend test** - Order by frontend test count
+    - **Total backend test** - Sort by backend test count
     
-    **Attention** - Filter test lists needing review
-    
-    **Failed** - Display test lists with execution errors
-  </Card>
-</CardGroup>
+    **Time-Based Sorting:**
+    - **Previous execution date** - Sort by most recently executed
+  </Tab>
+</Tabs>
 
 
-### <span style={{ opacity: 0.7 }}>Sorting Options</span>
-
-<CardGroup cols={2}>
-  <Card title="Test Volume Sorting" icon="list-ol">
-    **Total test cases** - Order by number of tests in the list
-    
-    **Total frontend test** - Order by frontend test count
-    
-    **Total backend test** - Sort by backend test count
-  </Card>
-  <Card title="Time-Based Sorting" icon="clock">
-    **Previous execution date** - Sort by most recently executed
-  </Card>
-</CardGroup>
-
-
----
 
 ## Test List Details
-
-### <span style={{ opacity: 0.7 }}>Overview Information</span>
 
 
 Each test list displays:
 
-
-<CardGroup cols={2}>
-  <Card title="Test List Name">
-    Descriptive identifier for your test collection
-  </Card>
-  <Card title="Previous Execution">
-    Last run date and time
-  </Card>
-</CardGroup>
-
-<CardGroup cols={3}>
-  <Card title="Total Test Cases">
-    Combined count of all tests in the list
-  </Card>
-  <Card title="Total Frontend Test">
-    Number of UI/browser tests
-  </Card>
-  <Card title="Total Backend Test">
-    Number of API/server tests
-  </Card>
-</CardGroup>
+<div className="full-width-table two-column" style={{ gridTemplateColumns: '1fr 3fr' }}>
+  <div className="table-header" style={{ padding: '6px', fontSize: '14px', fontWeight: 'bold' }}>Field</div>
+  <div className="table-header" style={{ padding: '6px', fontSize: '14px', fontWeight: 'bold' }}>Description</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)', fontWeight: 'bold' }}>Test List Name</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Descriptive identifier for your test collection</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)', fontWeight: 'bold' }}>Previous Execution</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Last run date and time</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)', fontWeight: 'bold' }}>Total Test Cases</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Combined count of all tests in the list</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)', fontWeight: 'bold' }}>Total Frontend Test</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Number of UI/browser tests</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px', fontWeight: 'bold' }}>Total Backend Test</div>
+  <div className="table-cell" style={{ padding: '6px', fontSize: '14px' }}>Number of API/server tests</div>
+</div>
 
 
-### <span style={{ opacity: 0.7 }}>Execution Actions</span>
-
-**Available Actions:**
+## Execution Actions
 
 - **Run Tests** - Execute all tests in the list
 - **View Results** - Review detailed test reports

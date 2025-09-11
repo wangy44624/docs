@@ -1,15 +1,11 @@
-
-# Back-End (APIs) Testing
-
-## Overview
-
-
-Simplify API testing with TestSprite's AI-powered backend testing. Perform comprehensive end-to-end tests for RESTful APIs with speed and precision—designed for teams of any size.
-
-
+---
+title: "Back-End (APIs) Testing"
+description: "AI-powered backend testing for RESTful APIs with speed and precision."
+icon: "terminal"
 ---
 
-### Key Features
+
+## Key Features
 
 <CardGroup cols={2}>
   <Card title="Fast Setup" icon="rocket">
@@ -29,8 +25,6 @@ Simplify API testing with TestSprite's AI-powered backend testing. Perform compr
   </Card>
 </CardGroup>
 
----
-
 ## Getting Started
 
 To begin using TestSprite for back-end testing, follow these steps:
@@ -40,7 +34,7 @@ To begin using TestSprite for back-end testing, follow these steps:
 
 <Steps>
   <Step title="Create New Test">
-    Navigate to [TestSprite Dashboard](https://www.testsprite.com/dashboard/testing) and click **Create a Test** or select **New Test** from the sidebar
+    Navigate to [TestSprite Dashboard  <Icon icon="arrow-up-right-from-square" size={12} />](https://www.testsprite.com/dashboard/testing) and click **Create a Test** or select **New Test** from the sidebar
   </Step>
   <Step title="Name Your Project">
     Enter a project name - you'll be automatically directed to Backend Testing
@@ -53,14 +47,16 @@ To begin using TestSprite for back-end testing, follow these steps:
   </Step>
 </Steps>
 
+<Frame>
 ![Backend Feature 0](/images/backend-feature-0.svg)
+</Frame>
+<br />
 
 <Accordion title="Example API Documentation">
-[GenRex API Reference](https://docs.genrex.com/docs/1.0/api-reference/request-generation) - Shows how comprehensive API docs help our AI generate better tests
+[GenRex API Reference  <Icon icon="arrow-up-right-from-square" size={12} />](https://docs.genrex.com/docs/1.0/api-reference/request-generation) - Shows how comprehensive API docs help our AI generate better tests
 </Accordion>
 
 
----
 
 ### Step 2: Review Generated Test Plans
 
@@ -92,14 +88,16 @@ To begin using TestSprite for back-end testing, follow these steps:
 You can expand each test type to view detailed scenarios and modify content directly to suit your specific needs.
 </Info>
 
+<Frame>
 ![Backend Feature 1](/images/backend-feature-1.svg)
+</Frame>
+<br />
 
 <Tip>
 **Best practice:** Select all available test cases to ensure comprehensive coverage. You can also add custom test cases using natural language.
 </Tip>
 
 
----
 
 ### Step 3: Run Your Tests
 
@@ -113,7 +111,6 @@ You can expand each test type to view detailed scenarios and modify content dire
 </Steps>
 
 
----
 
 ### Step 4: Review Test Results
 
@@ -138,10 +135,12 @@ You can expand each test type to view detailed scenarios and modify content dire
   </Card>
 </CardGroup>
 
+<Frame>
 ![Backend Feature 2](/images/backend-feature-2.svg)
+</Frame>
+<br />
 
 
----
 
 ## Advanced Configuration
 
@@ -152,7 +151,10 @@ Ask questions or suggest test adjustments using natural language—no specific f
 </Info>
 
 
+<Frame>
 ![Backend Feature 3](/images/backend-feature-3.svg)
+</Frame>
+<br />
 
 <Accordion title="Example Natural Language Request">
 ```plaintext
@@ -163,18 +165,15 @@ TestSprite automatically interprets and updates the corresponding test case, mak
 </Accordion>
 
 
----
 
 ## Examples
 
 See what TestSprite's AI generates for your APIs:
 
-
-<Accordion title="Example: Security Test for API Signature Validation">
 TestSprite automatically generates comprehensive security tests like this one that validates API signature handling:
 
 
-```python filename="test_api_security.py" copy
+```python Expandable Sample Security Test
 import hashlib
 import hmac
 import json
@@ -231,4 +230,3 @@ test_invalid_gx_signature()
 
 
 This test validates that your API properly rejects requests with invalid signatures, ensuring security integrity.
-</Accordion>
