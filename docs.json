@@ -16,7 +16,7 @@
     "light": "#07C983"
   },
   "favicon": "/favicon.svg",
-  "modeToggle": {
+  "appearance": {
     "default": "dark"
   },
   "navigation": {
