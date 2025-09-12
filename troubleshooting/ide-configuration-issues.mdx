@@ -13,27 +13,48 @@ If you experience issues where your **IDE doesn't recognize TestSprite MCP Serve
     <Tab title="macOS/Linux">
     Cursor Quick Check Commands
     ```bash
+    # Cursor project-level config (check current directory)
     cat .cursor/mcp.json | jq .
+    # Cursor global-level config
     cat ~/.cursor/mcp.json | jq .
     ```
     VS Code Quick Check Commands
     ```bash
+    # VS Code project-level settings (check current directory)
     cat .vscode/settings.json | jq .
-    cat ~/Library/Application\ Support/Code/User/settings.json | jq .  # macOS
-    cat ~/.config/Code/User/settings.json | jq .  # Linux
+
+    # VS Code global-level settings
+    # macOS
+    cat ~/Library/Application\ Support/Code/User/settings.json | jq .
+    # Linux
+    cat ~/.config/Code/User/settings.json | jq .
     ```
     </Tab>
 
     <Tab title="Windows">
     Cursor Quick Check Commands
     ```powershell
+    # Cursor project-level config (check current directory)
     Get-Content .cursor\mcp.json | ConvertFrom-Json
+    # Command Prompt with jq
+    type .cursor\mcp.json | jq .
+    
+    # Cursor global-level config
     Get-Content "$env:USERPROFILE\.cursor\mcp.json" | ConvertFrom-Json
+    # Command Prompt
+    type "%USERPROFILE%\.cursor\mcp.json" | jq .
     ```
     VS Code Quick Check Commands
     ```powershell
+    # VS Code project-level settings (check current directory)
     Get-Content .vscode\settings.json | ConvertFrom-Json
+    # Command Prompt
+    type .vscode\settings.json | jq .
+    
+    # VS Code global-level settings
     Get-Content "$env:APPDATA\Code\User\settings.json" | ConvertFrom-Json
+    # Command Prompt
+    type "%APPDATA%\Code\User\settings.json" | jq .
     ```
     </Tab>
     </Tabs>
@@ -42,17 +63,16 @@ If you experience issues where your **IDE doesn't recognize TestSprite MCP Serve
 
     <Tabs>
     <Tab title="Install jq">
-    For macOS
+    For macOS/Linux
     ```bash
-    brew install jq
+    brew install jq   #macOS
+    sudo apt-get install jq   #LinuX (Ubuntu/Debian)
+    sudo yum install jq   #LinuX (CentOS/RHEL)
     ```
-    For LinuX (Ubuntu/Debian)
-    ```bash
-    sudo apt-get install jq
-    ```
-    For Windows (Chocolatey)
+    For Windows 
     ```powershell
-    choco install jq
+    choco install jq   #Chocolatey
+    scoop install jq   #Using Scoop
     ```
     </Tab>
 
@@ -70,8 +90,12 @@ If you experience issues where your **IDE doesn't recognize TestSprite MCP Serve
     ```
     For Windows
     ``` powershell
-    Get-Content .cursor\mcp.json | Set-Clipboard
+    Get-Content .cursor\mcp.json | Set-Clipboard  # PowerShell
+    type .cursor\mcp.json | clip  # Command Prompt
     ```
+    </Tab>
+    <Tab title="Manual Download">
+    Download from [https://stedolan.github.io/jq/download/  <Icon icon="arrow-up-right-from-square" size={12} />](https://stedolan.github.io/jq/download/)
     </Tab>
     </Tabs>
 
@@ -123,9 +147,10 @@ If you experience issues where your **IDE doesn't recognize TestSprite MCP Serve
     mkdir -p .cursor ~/.cursor .vscode
     ```
 
-    3. **Fix file permissions** (if needed):
+    3. **Check file permissions** (if needed):
     ```bash
-    chmod 644 .cursor/mcp.json
+    ls -la .cursor/mcp.json
+    chmod 644 .cursor/mcp.json  # Fix permissions if needed
     ```
     </Tab>
 
@@ -135,6 +160,11 @@ If you experience issues where your **IDE doesn't recognize TestSprite MCP Serve
     Test-Path .cursor\mcp.json
     Test-Path "$env:USERPROFILE\.cursor\mcp.json"
     Test-Path .vscode\settings.json
+    
+    # Command Prompt
+    if exist .cursor\mcp.json echo File exists
+    if exist "%USERPROFILE%\.cursor\mcp.json" echo File exists
+    if exist .vscode\settings.json echo File exists
     ```
 
     2. **Create directories if missing:**
@@ -142,11 +172,18 @@ If you experience issues where your **IDE doesn't recognize TestSprite MCP Serve
     New-Item -ItemType Directory -Force -Path .cursor
     New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.cursor"
     New-Item -ItemType Directory -Force -Path .vscode
+
+    #Command Prompt
+    if not exist .cursor mkdir .cursor
+    if not exist "%USERPROFILE%\.cursor" mkdir "%USERPROFILE%\.cursor"
+    if not exist .vscode mkdir .vscode
     ```
 
-    3. **Fix file permissions** (if needed):
+    3. **Check permissions** (if needed):
     ```powershell
-    # Grant full control to current user if needed
+    # Check permissions
+    Get-Acl .cursor\mcp.json
+    # Grant full control to current user
     $user = [System.Security.Principal.WindowsIdentity]::GetCurrent()
     $acl = Get-Acl .cursor\mcp.json
     $acl.SetOwner($user)
