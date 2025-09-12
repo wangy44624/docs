@@ -12,10 +12,13 @@
   ],
   "colors": {
     "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#090909"
+    "dark": "#090909",
+    "light": "#07C983"
   },
   "favicon": "/favicon.svg",
+  "modeToggle": {
+    "default": "dark"
+  },
   "navigation": {
     "global": {
       "anchors": [
