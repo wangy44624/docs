@@ -17,7 +17,8 @@
   },
   "favicon": "/favicon.svg",
   "appearance": {
-    "default": "dark"
+    "default": "dark",
+    "strict": "true"
   },
   "navigation": {
     "global": {
