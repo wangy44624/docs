@@ -127,19 +127,13 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     {
-      "title": "Edit on GitHub",
-      "description": "Contributions to improve our documentation",
-      "icon": "pen-to-square",
-      "href": "https://github.com/TestSprite/Docs/tree/v1.0"
-    }
+     "copy"
    ]
   },
   "footer": {
     "socials": {
       "x": "https://x.com/testsprite",
-      "github": "https://github.com/TestSprite/Docs",
+      "github": "https://github.com/wangy44624/docs",
       "linkedin": "https://linkedin.com/company/testsprite",
       "discord": "https://discord.gg/QQB9tJ973e"
     },
