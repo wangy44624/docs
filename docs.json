@@ -58,6 +58,14 @@
               "mcp/overview",
               "mcp/installation",
               {
+                "group": "Tutorials",
+                "icon": "book",
+                "pages": [
+                  "mcp/first-test",
+                  "mcp/examples"
+                ]
+              },
+              {
                 "group": "Troubleshooting",
                 "icon": "bug",
                 "pages": [
@@ -65,6 +73,14 @@
                   "troubleshooting/ide-configuration-issues",
                   "troubleshooting/application-detection-issues",
                   "troubleshooting/test-execution-issues"
+                ]
+              },
+              {
+                "group": "Concepts",
+                "icon": "route",
+                "pages": [
+                  "mcp/workflow",
+                  "mcp/tools"
                 ]
               }
             ]
@@ -76,39 +92,14 @@
               "web-portal/api-testing",
               "web-portal/ui-testing",
               "web-portal/test-lists",
-              "web-portal/monitoring"
+              "web-portal/monitoring",
+              "web-portal/api-keys"
             ]
           },
           {
             "group": "Support",
             "pages": [
               "faq"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Guides",
-        "icon": "book-open",
-        "groups": [
-          {
-            "group": "Configurations",
-            "pages": [
-              "web-portal/api-keys"
-            ]
-          },
-          {
-            "group": "Tutorials",
-            "pages": [
-              "mcp/first-test",
-              "mcp/examples"
-            ]
-          },
-          {
-            "group": "Concepts",
-            "pages": [
-              "mcp/workflow",
-              "mcp/tools"
             ]
           }
         ]
