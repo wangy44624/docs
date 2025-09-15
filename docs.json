@@ -128,63 +128,6 @@
       "github": "https://github.com/wangy44624/docs",
       "linkedin": "https://linkedin.com/company/testsprite",
       "discord": "https://discord.gg/QQB9tJ973e"
-    },
-    "links": [
-      {
-        "header": "Solutions",
-        "items": [
-          {
-            "label": "MCP Server",
-            "href": "https://www.testsprite.com/solutions/mcp"
-          },
-          {
-            "label": "Backend Testing",
-            "href": "https://www.testsprite.com/solutions/backend"
-          },
-          {
-            "label": "Frontend Testing",
-            "href": "https://www.testsprite.com/solutions/frontend"
-          },
-          {
-            "label": "Data Testing",
-            "href": "https://calendly.com/contact-hmul/schedule"
-          },
-          {
-            "label": "AI Agent/Model Testing",
-            "href": "https://calendly.com/contact-hmul/schedule"
-          }
-        ]
-      },
-      {
-        "header": "Resources",
-        "items": [
-          {
-            "label": "Docs",
-            "href": "https://docs.testsprite.com/"
-          },
-          {
-            "label": "About",
-            "href": "https://www.testsprite.com/about"
-          },
-          {
-            "label": "Blog",
-            "href": "https://www.testsprite.com/blog"
-          }
-        ]
-      },
-      {
-        "header": "Legal",
-        "items": [
-          {
-            "label": "Terms & Conditions",
-            "href": "https://www.testsprite.com/terms"
-          },
-          {
-            "label": "Privacy Policy",
-            "href": "https://www.testsprite.com/privacy"
-          }
-        ]
-      }
-    ]
+    }
   }
 }
