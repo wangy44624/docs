@@ -50,31 +50,89 @@ Can you test this project with TestSprite?
 
 That's it! Your AI assistant will now take over and guide you through the entire testing process.
 
-## Step 3: The Automated Workflow
+## Step 3: Configuration (Required)
 
-Your AI assistant will automatically handle the **entire testing process** by running through these steps. It takes care of everything from understanding your project to running the actual tests, so you don't have to do any of the work manually.
+  <Frame>
+    <img src="../images/testing-config.png"  alt="config" />
+  </Frame>
 
-Learn more about details steps at [Testing Workflow](/mcp/workflow).
-
-## Step 4: Configuration (Required)
+  <Note>The Testing Configuration page will open in your browser. Complete the setup here to continue your test.</Note>
 
 When the bootstrap tool opens, you must configure:
 
-1. **Test Account Credentials** - If your app requires login:
-```json Crediential Examples
-Username: test@example.com
-Password: your-test-password
-```
+1. **Testing Type**
+  <Frame>
+    <img src="../images/testing-type.png"  alt="type" />
+  </Frame>
+  <Tabs>
+    <Tab title="Mode">
+    - **Frontend**: Select this if you want to test your UI and user flows (e.g. buttons, forms, navigation).
 
-2. **Application URLs:**
+    - **Backend**: Select this if you want to test your APIs, services, or server logic.
+    </Tab>
+    <Tab title="Scope">
+    - **Codebase**: Runs tests against the entire project. Use this if you want a full test sweep or haven’t run MCP before.
+    - **Code Diff**: Runs tests only against your recent changes (uncommitted Git changes). Use this to quickly validate new work without testing everything again.
+    </Tab>
+  </Tabs>
+
+
+2. **Test Account Credentials** - If your app requires login:
+
+<Tabs>
+  <Tab title="Frontend">
+    <Frame>
+    <img src="../images/credential-frontend.png"  alt="credential" />
+  </Frame>
+  ```json Crediential Examples
+    Username: test@example.com
+    Password: your-test-password
+    ```
+  </Tab>
+  <Tab title="Backend">
+    <Frame>
+    <img src="../images/credential-backend.png"  alt="credential" />
+  </Frame>
+  
+  <div className="full-width-table" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '0' }}>
+    <div className="table-header" style={{ padding: '2px', fontSize: '14px' }}>Authentication Type</div>
+    <div className="table-header" style={{ padding: '2px', fontSize: '14px' }}>Description</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>**Basic**</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Uses username & password</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>**Bearer**</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Secure token-based authentication</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>**API-key**</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px', borderBottom: '1px solid var(--table-border-color, #e5e7eb)' }}>Uses a unique API key for access</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px' }}>**None**</div>
+    <div className="table-cell" style={{ padding: '2px', fontSize: '14px' }}>No authentication required</div>
+  </div>
+  
+  </Tab>
+</Tabs>
+
+3. **Application URLs:**
+
+<Frame>
+  <img src="../images/testing-portal.png"  alt="portal" />
+</Frame>
 ``` text URL Examples
 Frontend: http://localhost:5173
 Backend: http://localhost:4000
 ```
 
-3. **Product Requirements Document** 
+4. **Product Requirements Document** 
+
+<Frame>
+  <img src="../images/testing-prd.png"  alt="prd" />
+</Frame>
 
 Upload existing PRD (required). Even a draft or low-quality PRD is fine. TestSprite AI will generate a normalized PRD based on your upload.
+
+## Step 4: The Automated Workflow
+
+Your AI assistant will automatically handle the **entire testing process** by running through these steps. It takes care of everything from understanding your project to running the actual tests, so you don't have to do any of the work manually.
+
+Learn more about details steps at [Testing Workflow](/mcp/workflow).
 
 ## Step 5: Review Test Results
 
