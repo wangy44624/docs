@@ -61,10 +61,11 @@
                 "group": "Tutorials",
                 "icon": "book",
                 "pages": [
-                  "mcp/first-test",
-                  "mcp/examples"
+                  "tutorials/first-test",
+                  "tutorials/demo-examples"
                 ]
               },
+              "mcp/test-maintenance",
               {
                 "group": "Troubleshooting",
                 "icon": "bug",
@@ -79,8 +80,8 @@
                 "group": "Concepts",
                 "icon": "route",
                 "pages": [
-                  "mcp/workflow",
-                  "mcp/tools"
+                  "concepts/workflow",
+                  "concepts/tools"
                 ]
               }
             ]
