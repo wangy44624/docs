@@ -62,10 +62,10 @@
                 "icon": "book",
                 "pages": [
                   "tutorials/first-test",
+                  "tutorials/test-maintenance",
                   "tutorials/demo-examples"
                 ]
               },
-              "mcp/test-maintenance",
               {
                 "group": "Troubleshooting",
                 "icon": "bug",
